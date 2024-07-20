@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">E-KUISIONER</string>
+    <string-array name="user_type_array">
+        <item>User</item>
+        <item>Admin</item>
+    </string-array>
+
+</resources>

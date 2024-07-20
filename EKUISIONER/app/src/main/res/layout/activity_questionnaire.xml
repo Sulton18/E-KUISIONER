@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/black"
+        android:padding="1dp">
+
+        <!-- Tokopedia Section -->
+        <LinearLayout
+            android:id="@+id/tokopedia_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/tokopedia"
+            android:padding="16dp"
+            android:textColor="@color/black"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tokopedia"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="12dp"
+                android:padding="8dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:gravity="center"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="a. Apakah warna di website Tokopedia membantu membedakan elemen-elemen penting misalnya tombol, navigasi, dan lain-lain?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_color_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="b. Apakah warna yang digunakan di website Tokopedia membuat Anda merasa nyaman saat berbelanja online?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_color_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="c. Apakah penggunaan warna tidak mengganggu atau membuat mata lelah saat menjelajahi website Tokopedia?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_color_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="d. Seberapa efektifkah penggunaan warna dalam menarik perhatian Anda terhadap promo, diskon, atau produk baru di website Tokopedia?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_color_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="e. Seberapa menarik kombinasi warna yang digunakan pada antarmuka aplikasi Tokopedia?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_color_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Navigasi Tokopedia"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="a. Apakah struktur menu dan kategori produk di website Tokopedia tersusun dengan jelas dan mudah diikuti?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_nav_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="b. Apakah fitur pencarian produk di website Tokopedia berfungsi dengan baik dan memberikan hasil yang relevan?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_nav_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="c. Apakah informasi dan detail produk di website Tokopedia disajikan dengan jelas dan mudah dipahami?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_nav_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="d. Seberapa mudahkah Anda menemukan informasi yang Anda cari di website Tokopedia?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_nav_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="e. Apakah ada fitur navigasi yang Anda rasa kurang atau perlu perbaikan di website Tokopedia?" />
+
+                    <RadioGroup
+                        android:id="@+id/tokopedia_nav_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Navigation Button -->
+            <Button
+                android:id="@+id/next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:background="@color/black"
+                android:drawableLeft="@drawable/ic_next"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <!-- Shopee Section -->
+        <LinearLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/shopee_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/shopee"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Warna Shopee"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="a. Apakah warna di website Shopee membantu membedakan elemen-elemen penting misalnya tombol, navigasi, dan lain-lain?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_color_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="b. Apakah warna yang digunakan di website Shopee membuat Anda merasa nyaman saat berbelanja online?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_color_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="c. Apakah penggunaan warna tidak mengganggu atau membuat mata lelah saat menjelajahi website Shopee?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_color_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="d. Seberapa efektifkah penggunaan warna dalam menarik perhatian Anda terhadap promo, diskon, atau produk baru di website Shopee?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_color_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="e. Seberapa menarik kombinasi warna yang digunakan pada antarmuka aplikasi Shopee?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_color_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Navigasi Shopee"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="a. Apakah struktur menu dan kategori produk di website Shopee tersusun dengan jelas dan mudah diikuti?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_nav_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="b. Apakah fitur pencarian produk di website Shopee berfungsi dengan baik dan memberikan hasil yang relevan?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_nav_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="c. Apakah informasi dan detail produk di website Shopee disajikan dengan jelas dan mudah dipahami?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_nav_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="d. Seberapa mudahkah Anda menemukan informasi yang Anda cari di website Shopee?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_nav_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="1dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                tools:ignore="ExtraText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="e. Apakah ada fitur navigasi yang Anda rasa kurang atau perlu perbaikan di website Shopee?" />
+
+                    <RadioGroup
+                        android:id="@+id/shopee_nav_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4" />
+                        <RadioButton android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/submit_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/submit_button_background"
+                android:drawableLeft="@drawable/ic_submit"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
