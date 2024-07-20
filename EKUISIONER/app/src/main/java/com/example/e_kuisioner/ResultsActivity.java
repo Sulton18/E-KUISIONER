@@ -11,6 +11,7 @@ public class ResultsActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
     TextView resultsSummary, tokopediaResults, shopeeResults;
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class ResultsActivity extends AppCompatActivity {
         shopeeResults = findViewById(R.id.shopee_results);
 
         // Retrieve data from the database
-        String userId = "user_id_placeholder"; // Replace with actual user ID
+        userId = getIntent().getStringExtra("USER_ID");
         Cursor data = myDb.getQuestionnaireData(userId);
 
         if (data != null && data.moveToFirst()) {

@@ -4,12 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import android.util.Patterns;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,15 +47,24 @@ public class MainActivity extends AppCompatActivity {
                     res.moveToFirst();
                     @SuppressLint("Range") String userType = res.getString(res.getColumnIndex("USER_TYPE"));
                     @SuppressLint("Range") int isApproved = res.getInt(res.getColumnIndex("IS_APPROVED"));
+                    @SuppressLint("Range") String userId = res.getString(res.getColumnIndex("ID")); // Retrieve user ID
 
+                    Cursor userCursor = myDb.getQuestionnaireData(userId);
+                    Log.d("UserDetailActivity", "Questionnaire data found for user ID: " + userCursor.getCount());
                     if (isApproved == 0) {
                         Toast.makeText(MainActivity.this, "Akun belum disetujui", Toast.LENGTH_LONG).show();
                     } else if (userType.equals("admin")) {
                         Intent intent = new Intent(MainActivity.this, AdminActivity.class);
                         startActivity(intent);
                         finish();
-                    } else {
+                    } else if (userCursor == null || userCursor.getCount() == 0){
                         Intent intent = new Intent(MainActivity.this, QuestionnaireActivity.class);
+                        intent.putExtra("USER_ID", userId);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Intent intent = new Intent(MainActivity.this,ResultsActivity.class);
+                        intent.putExtra("USER_ID", userId);
                         startActivity(intent);
                         finish();
                     }

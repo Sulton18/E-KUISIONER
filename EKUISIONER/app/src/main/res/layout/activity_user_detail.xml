@@ -52,6 +52,16 @@
                 android:textColor="@android:color/black"
                 android:text="Shopee Value: " />
 
+            <Button
+                android:id="@+id/approve_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Approve"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/colorPrimary"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

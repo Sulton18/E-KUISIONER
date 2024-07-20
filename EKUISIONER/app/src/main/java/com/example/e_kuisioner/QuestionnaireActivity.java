@@ -21,6 +21,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
     Button submitButton;
     Button nextButton;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,14 @@ public class QuestionnaireActivity extends AppCompatActivity {
         setContentView(R.layout.activity_questionnaire);
 
         myDb = new DatabaseHelper(this);
+
+        // Retrieve the user ID from the intent
+        userId = getIntent().getStringExtra("USER_ID");
+        if (userId == null) {
+            Toast.makeText(this, "User ID is missing", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
         // Initialize RadioGroups for questions
         tokopediaColorGroups = new RadioGroup[]{
@@ -94,13 +103,12 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     return;
                 }
 
-                int tokopediaNilai = tokopediaColorTotal+tokopediaNavTotal;
-                int shopeeNilai = shopeeColorTotal+shopeeNavTotal;
-
+                int tokopediaNilai = tokopediaColorTotal + tokopediaNavTotal;
+                int shopeeNilai = shopeeColorTotal + shopeeNavTotal;
 
                 // Save data to database
                 boolean isInserted = myDb.insertQuestionnaireData(
-                        "user_id_placeholder",
+                        userId, // Use the actual user ID
                         tokopediaNilai,
                         shopeeNilai
                 );
@@ -108,6 +116,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
                 if (isInserted) {
                     Toast.makeText(QuestionnaireActivity.this, "Data saved successfully", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(QuestionnaireActivity.this, ResultsActivity.class);
+                    intent.putExtra("USER_ID", userId);
                     startActivity(intent);
                     finish();
                 } else {

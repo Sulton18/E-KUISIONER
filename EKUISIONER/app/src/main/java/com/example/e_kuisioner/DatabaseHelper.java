@@ -87,10 +87,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result > 0;
     }
 
-    public Cursor getUnapprovedUsers() {
+    public Cursor getAllNonAdminUsers() {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE IS_APPROVED = 0", null);
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE USER_TYPE != 'admin'", null);
     }
+
 
     public Cursor getData(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
