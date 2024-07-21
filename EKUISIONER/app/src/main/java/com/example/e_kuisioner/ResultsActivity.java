@@ -11,6 +11,7 @@ public class ResultsActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
     TextView resultsSummary, tokopediaResults, shopeeResults;
+    BarChartView barChartView;
     private String userId;
 
     @Override
@@ -23,6 +24,7 @@ public class ResultsActivity extends AppCompatActivity {
         resultsSummary = findViewById(R.id.results_summary);
         tokopediaResults = findViewById(R.id.tokopedia_results);
         shopeeResults = findViewById(R.id.shopee_results);
+        barChartView = findViewById(R.id.bar_chart);
 
         // Retrieve data from the database
         userId = getIntent().getStringExtra("USER_ID");
@@ -41,6 +43,9 @@ public class ResultsActivity extends AppCompatActivity {
 
             // Calculate summary
             resultsSummary.setText("Tokopedia: " + tokopediaPercentage + "%\nShopee: " + shopeePercentage + "%");
+
+            // Set data in bar chart
+            barChartView.setPercentages(tokopediaValue, tokopediaPercentage, shopeeValue, shopeePercentage);
 
             data.close();
         }

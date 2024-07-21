@@ -1,5 +1,6 @@
 package com.example.e_kuisioner;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -92,7 +93,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE USER_TYPE != 'admin'", null);
     }
 
-
     public Cursor getData(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE EMAIL = ? AND PASSWORD = ?", new String[]{email, password});
@@ -102,8 +102,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        float tokopediaPercentage = calculatePercentage(tokopediaValue);
-        float shopeePercentage = calculatePercentage(shopeeValue);
+        int tokopediaPercentage = calculatePercentage(tokopediaValue);
+        int shopeePercentage = calculatePercentage(shopeeValue);
 
         contentValues.put(QUESTIONNAIRE_COL_2, userId);
         contentValues.put(QUESTIONNAIRE_COL_3, tokopediaValue);
@@ -115,8 +115,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    private float calculatePercentage(int value) {
-        return ((value / 50.0f) * 100);
+    private int calculatePercentage(int value) {
+        return Math.round((value / 50.0f) * 100); // Return as integer
     }
 
     public Cursor getQuestionnaireData(String userId) {
@@ -129,4 +129,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID = ?", new String[]{userId});
     }
 
+    public boolean deleteUser(String userId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "ID = ?", new String[]{userId});
+        return result > 0;
+    }
+
+    public boolean updateUser(String userId, String email, String password, String name, int age, String job) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, email);
+        contentValues.put(COL_3, password);
+        contentValues.put(COL_4, name);
+        contentValues.put(COL_5, age);
+        contentValues.put(COL_6, job);
+
+        long result = db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{userId});
+        return result > 0;
+    }
+
+    public Cursor getAllQuestionnaireData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + QUESTIONNAIRE_TABLE_NAME, null);
+    }
+
+    // Method to calculate total and average percentages
+    public int[] calculateTotalPercentages() {
+        int[] totals = new int[4]; // Index 0: totalTokopediaValue, 1: totalShopeeValue, 2: averageTokopediaPercentage, 3: averageShopeePercentage
+        Cursor cursor = getAllQuestionnaireData();
+
+        if (cursor.getCount() == 0) {
+            cursor.close();
+            return totals;
+        }
+
+        int count = 0;
+        while (cursor.moveToNext()) {
+            @SuppressLint("Range") int tokopediaValue = cursor.getInt(cursor.getColumnIndex(QUESTIONNAIRE_COL_3));
+            @SuppressLint("Range") int shopeeValue = cursor.getInt(cursor.getColumnIndex(QUESTIONNAIRE_COL_4));
+            @SuppressLint("Range") int tokopediaPercentage = cursor.getInt(cursor.getColumnIndex(QUESTIONNAIRE_COL_5));
+            @SuppressLint("Range") int shopeePercentage = cursor.getInt(cursor.getColumnIndex(QUESTIONNAIRE_COL_6));
+
+            totals[0] += tokopediaValue;
+            totals[1] += shopeeValue;
+            totals[2] += tokopediaPercentage;
+            totals[3] += shopeePercentage;
+            count++;
+        }
+        cursor.close();
+
+        if (count > 0) {
+            totals[2] /= count; // Average Tokopedia percentage
+            totals[3] /= count; // Average Shopee percentage
+        }
+
+        return totals;
+    }
 }

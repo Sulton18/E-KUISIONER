@@ -26,6 +26,10 @@
         <activity android:name=".ResultsActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".UserDetailActivity" />
+        <activity android:name=".EditUserActivity" />
+        <activity android:name=".PercentagesActivity" />
+
+
     </application>
 
 </manifest>

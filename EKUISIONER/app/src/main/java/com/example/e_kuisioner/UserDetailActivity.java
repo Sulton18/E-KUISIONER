@@ -1,6 +1,7 @@
 package com.example.e_kuisioner;
 
-import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class UserDetailActivity extends AppCompatActivity {
@@ -18,6 +20,9 @@ public class UserDetailActivity extends AppCompatActivity {
     private TextView tokopediaValueTextView;
     private TextView shopeeValueTextView;
     private Button approveButton;
+    private Button editButton;
+    private Button deleteButton;
+    private BarChartView barChartView;
     private String userId;
 
     @Override
@@ -30,6 +35,9 @@ public class UserDetailActivity extends AppCompatActivity {
         tokopediaValueTextView = findViewById(R.id.tokopedia_value_text_view);
         shopeeValueTextView = findViewById(R.id.shopee_value_text_view);
         approveButton = findViewById(R.id.approve_button);
+        editButton = findViewById(R.id.edit_button);
+        deleteButton = findViewById(R.id.delete_button);
+        barChartView = findViewById(R.id.bar_chart);
 
         userId = getIntent().getStringExtra("USER_ID");
         if (userId != null) {
@@ -44,56 +52,83 @@ public class UserDetailActivity extends AppCompatActivity {
                 approveUser();
             }
         });
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDetailActivity.this, EditUserActivity.class);
+                intent.putExtra("USER_ID", userId);
+                startActivity(intent);
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDeleteUser();
+            }
+        });
     }
 
     private void displayUserDetails(String userId) {
-        Cursor userCursor = myDb.getDataById(userId);
-        if (userCursor.getCount() == 0) {
-            Toast.makeText(this, "No user data available", Toast.LENGTH_LONG).show();
-            userCursor.close();
-            return;
-        }
+        Cursor userCursor = null;
+        Cursor questionnaireCursor = null;
+        try {
+            userCursor = myDb.getDataById(userId);
+            if (userCursor != null && userCursor.moveToFirst()) {
+                String name = userCursor.getString(userCursor.getColumnIndex("NAME"));
+                int age = userCursor.getInt(userCursor.getColumnIndex("AGE"));
+                String job = userCursor.getString(userCursor.getColumnIndex("JOB"));
+                String email = userCursor.getString(userCursor.getColumnIndex("EMAIL"));
 
-        if (userCursor.moveToFirst()) {
-            @SuppressLint("Range") String name = userCursor.getString(userCursor.getColumnIndex("NAME"));
-            @SuppressLint("Range") int age = userCursor.getInt(userCursor.getColumnIndex("AGE"));
-            @SuppressLint("Range") String job = userCursor.getString(userCursor.getColumnIndex("JOB"));
-            @SuppressLint("Range") String email = userCursor.getString(userCursor.getColumnIndex("EMAIL"));
+                StringBuilder userDetails = new StringBuilder();
+                userDetails.append("Name: ").append(name).append("\n");
+                userDetails.append("Age: ").append(age).append("\n");
+                userDetails.append("Job: ").append(job).append("\n");
+                userDetails.append("Email: ").append(email).append("\n");
 
-            StringBuilder userDetails = new StringBuilder();
-            userDetails.append("Name: ").append(name).append("\n");
-            userDetails.append("Age: ").append(age).append("\n");
-            userDetails.append("Job: ").append(job).append("\n");
-            userDetails.append("Email: ").append(email).append("\n");
+                userDetailTextView.setText(userDetails.toString());
 
-            userDetailTextView.setText(userDetails.toString());
-        }
-        userCursor.close();
+                int isApproved = userCursor.getInt(userCursor.getColumnIndex("IS_APPROVED"));
+                if (isApproved == 1) {
+                    approveButton.setVisibility(View.GONE);
+                    editButton.setVisibility(View.VISIBLE);
+                    deleteButton.setVisibility(View.VISIBLE);
+                } else {
+                    approveButton.setVisibility(View.VISIBLE);
+                    editButton.setVisibility(View.GONE);
+                    deleteButton.setVisibility(View.GONE);
+                }
+            } else {
+                Toast.makeText(this, "No user data available", Toast.LENGTH_LONG).show();
+            }
 
-        Cursor questionnaireCursor = myDb.getQuestionnaireData(userId);
-        if (questionnaireCursor == null || questionnaireCursor.getCount() == 0) {
-            Toast.makeText(this, "No questionnaire data available for this user", Toast.LENGTH_LONG).show();
-            if (questionnaireCursor != null) {
+            questionnaireCursor = myDb.getQuestionnaireData(userId);
+            if (questionnaireCursor != null && questionnaireCursor.moveToFirst()) {
+                int tokopediaValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_3));
+                int shopeeValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_4));
+                int tokopediaPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
+                int shopeePercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
+
+                Log.d("UserDetailActivity", "Tokopedia Value: " + tokopediaValue);
+                Log.d("UserDetailActivity", "Shopee Value: " + shopeeValue);
+                Log.d("UserDetailActivity", "Tokopedia Percentage: " + tokopediaPercentage);
+                Log.d("UserDetailActivity", "Shopee Percentage: " + shopeePercentage);
+
+                tokopediaValueTextView.setText("Tokopedia Value: " + tokopediaValue + " (" + tokopediaPercentage + "%)");
+                shopeeValueTextView.setText("Shopee Value: " + shopeeValue + " (" + shopeePercentage + "%)");
+
+                barChartView.setPercentages(tokopediaValue, tokopediaPercentage, shopeeValue, shopeePercentage);
+            } else {
+                Toast.makeText(this, "No questionnaire data available for this user", Toast.LENGTH_LONG).show();
+            }
+        } finally {
+            if (userCursor != null && !userCursor.isClosed()) {
+                userCursor.close();
+            }
+            if (questionnaireCursor != null && !questionnaireCursor.isClosed()) {
                 questionnaireCursor.close();
             }
-            return;
-        }
-
-        if (questionnaireCursor.moveToFirst()) {
-            @SuppressLint("Range") int tokopediaValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_3));
-            @SuppressLint("Range") int shopeeValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_4));
-            @SuppressLint("Range") int tokopediaPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
-            @SuppressLint("Range") int shopeePercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
-
-            Log.d("UserDetailActivity", "Tokopedia Value: " + tokopediaValue);
-            Log.d("UserDetailActivity", "Shopee Value: " + shopeeValue);
-            Log.d("UserDetailActivity", "Tokopedia Percentage: " + tokopediaPercentage);
-            Log.d("UserDetailActivity", "Shopee Percentage: " + shopeePercentage);
-
-            tokopediaValueTextView.setText("Tokopedia Value: " + tokopediaValue + " (" + tokopediaPercentage + "%)");
-            shopeeValueTextView.setText("Shopee Value: " + shopeeValue + " (" + shopeePercentage + "%)");
-
-            questionnaireCursor.close();
         }
     }
 
@@ -101,9 +136,35 @@ public class UserDetailActivity extends AppCompatActivity {
         boolean isApproved = myDb.approveUser(userId);
         if (isApproved) {
             Toast.makeText(this, "User approved", Toast.LENGTH_LONG).show();
-            approveButton.setEnabled(false); // Disable button after approval
+            approveButton.setVisibility(View.GONE);
+            editButton.setVisibility(View.VISIBLE);
+            deleteButton.setVisibility(View.VISIBLE);
         } else {
             Toast.makeText(this, "Approval failed", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void confirmDeleteUser() {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete User")
+                .setMessage("Are you sure you want to delete this user?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteUser();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+    private void deleteUser() {
+        boolean isDeleted = myDb.deleteUser(userId);
+        if (isDeleted) {
+            Toast.makeText(this, "User deleted", Toast.LENGTH_LONG).show();
+            finish(); // Close the activity
+        } else {
+            Toast.makeText(this, "Deletion failed", Toast.LENGTH_LONG).show();
         }
     }
 }

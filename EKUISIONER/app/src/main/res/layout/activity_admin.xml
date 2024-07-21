@@ -20,16 +20,58 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/approve_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"/>
 
     <Button
         android:id="@+id/approve_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Show Percentages"
         android:textSize="16sp"
         android:padding="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Container for percentages and chart -->
+    <LinearLayout
+        android:id="@+id/percentages_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/user_list_view"
+        app:layout_constraintBottom_toTopOf="@+id/approve_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/total_tokopedia_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:text="Tokopedia Total Percentage: "
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/total_shopee_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:text="Shopee Total Percentage: "
+            android:layout_marginBottom="16dp"/>
+
+        <com.example.e_kuisioner.BarChartView
+            android:id="@+id/total_bar_chart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/button_gradient">
 
     <TextView
         android:id="@+id/results_summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:textColor="@color/black"
         android:text="Results Summary"
         android:layout_centerHorizontal="true"/>
 
@@ -19,6 +20,7 @@
         android:layout_below="@id/results_summary"
         android:layout_marginTop="16dp"
         android:textSize="16sp"
+        android:textColor="@color/black"
         android:text="Tokopedia Results"/>
 
     <TextView
@@ -28,6 +30,14 @@
         android:layout_below="@id/tokopedia_results"
         android:layout_marginTop="8dp"
         android:textSize="16sp"
+        android:textColor="@color/black"
         android:text="Shopee Results"/>
 
+    <com.example.e_kuisioner.BarChartView
+        android:id="@+id/bar_chart"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@drawable/bar_chart_background"
+        android:layout_below="@id/shopee_results"
+        android:layout_marginTop="16dp"/>
 </RelativeLayout>
