@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else if (userCursor == null || userCursor.getCount() == 0){
-                        Intent intent = new Intent(MainActivity.this, QuestionnaireActivity.class);
+                        Intent intent = new Intent(MainActivity.this, ScoreScaleActivity.class);
                         intent.putExtra("USER_ID", userId);
                         startActivity(intent);
                         finish();

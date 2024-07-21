@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/black"
+        android:background="@drawable/button_gradient"
         android:padding="1dp">
 
         <!-- Tokopedia Section -->
@@ -17,15 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/tokopedia"
-            android:padding="16dp"
-            android:textColor="@color/black"
+            android:background="@drawable/tokopedia_gradient"
+            android:padding="5dp"
             xmlns:app="http://schemas.android.com/apk/res-auto">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tokopedia"
+                android:text="Warna Tokopedia"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -56,6 +55,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="a. Apakah warna di website Tokopedia membantu membedakan elemen-elemen penting misalnya tombol, navigasi, dan lain-lain?" />
 
                     <RadioGroup
@@ -65,19 +65,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -99,6 +104,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="b. Apakah warna yang digunakan di website Tokopedia membuat Anda merasa nyaman saat berbelanja online?" />
 
                     <RadioGroup
@@ -108,19 +114,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -143,6 +154,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="c. Apakah penggunaan warna tidak mengganggu atau membuat mata lelah saat menjelajahi website Tokopedia?" />
 
                     <RadioGroup
@@ -152,19 +164,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -187,6 +204,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="d. Seberapa efektifkah penggunaan warna dalam menarik perhatian Anda terhadap promo, diskon, atau produk baru di website Tokopedia?" />
 
                     <RadioGroup
@@ -196,19 +214,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -231,6 +254,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="e. Seberapa menarik kombinasi warna yang digunakan pada antarmuka aplikasi Tokopedia?" />
 
                     <RadioGroup
@@ -240,19 +264,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -263,10 +292,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Navigasi Tokopedia"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
+                android:textColor="@color/black"
+                android:layout_marginBottom="12dp"
+                android:padding="8dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:gravity="center"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -285,6 +320,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="a. Apakah struktur menu dan kategori produk di website Tokopedia tersusun dengan jelas dan mudah diikuti?" />
 
                     <RadioGroup
@@ -294,19 +330,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -329,6 +370,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="b. Apakah fitur pencarian produk di website Tokopedia berfungsi dengan baik dan memberikan hasil yang relevan?" />
 
                     <RadioGroup
@@ -338,19 +380,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -373,6 +420,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="c. Apakah informasi dan detail produk di website Tokopedia disajikan dengan jelas dan mudah dipahami?" />
 
                     <RadioGroup
@@ -382,19 +430,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -417,6 +470,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="d. Seberapa mudahkah Anda menemukan informasi yang Anda cari di website Tokopedia?" />
 
                     <RadioGroup
@@ -426,19 +480,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -461,6 +520,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="e. Apakah ada fitur navigasi yang Anda rasa kurang atau perlu perbaikan di website Tokopedia?" />
 
                     <RadioGroup
@@ -470,19 +530,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -491,17 +556,15 @@
             <!-- Navigation Button -->
             <Button
                 android:id="@+id/next_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Next"
                 android:layout_gravity="center"
-                android:padding="12dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/white"
-                android:background="@color/black"
-                android:drawableLeft="@drawable/ic_next"
-                android:drawablePadding="8dp"
-                android:gravity="center_vertical"/>
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
 
         </LinearLayout>
 
@@ -512,7 +575,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/shopee"
+            android:background="@drawable/shopee_gradient"
             android:padding="16dp"
             android:layout_marginBottom="16dp"
             android:visibility="gone">
@@ -521,9 +584,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Warna Shopee"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:textColor="@color/black"
+                android:layout_marginBottom="12dp"
+                android:padding="8dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:gravity="center"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -543,6 +613,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="a. Apakah warna di website Shopee membantu membedakan elemen-elemen penting misalnya tombol, navigasi, dan lain-lain?" />
 
                     <RadioGroup
@@ -552,19 +623,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -586,6 +662,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="b. Apakah warna yang digunakan di website Shopee membuat Anda merasa nyaman saat berbelanja online?" />
 
                     <RadioGroup
@@ -595,19 +672,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -629,6 +711,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="c. Apakah penggunaan warna tidak mengganggu atau membuat mata lelah saat menjelajahi website Shopee?" />
 
                     <RadioGroup
@@ -638,19 +721,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -673,6 +761,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="d. Seberapa efektifkah penggunaan warna dalam menarik perhatian Anda terhadap promo, diskon, atau produk baru di website Shopee?" />
 
                     <RadioGroup
@@ -682,19 +771,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -717,6 +811,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="e. Seberapa menarik kombinasi warna yang digunakan pada antarmuka aplikasi Shopee?" />
 
                     <RadioGroup
@@ -726,19 +821,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -748,10 +848,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Navigasi Shopee"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
+                android:textColor="@color/black"
+                android:layout_marginBottom="12dp"
+                android:padding="8dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:gravity="center"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -771,6 +877,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="a. Apakah struktur menu dan kategori produk di website Shopee tersusun dengan jelas dan mudah diikuti?" />
 
                     <RadioGroup
@@ -780,19 +887,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -814,6 +926,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="b. Apakah fitur pencarian produk di website Shopee berfungsi dengan baik dan memberikan hasil yang relevan?" />
 
                     <RadioGroup
@@ -823,19 +936,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -857,6 +975,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="c. Apakah informasi dan detail produk di website Shopee disajikan dengan jelas dan mudah dipahami?" />
 
                     <RadioGroup
@@ -866,19 +985,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -900,6 +1024,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="d. Seberapa mudahkah Anda menemukan informasi yang Anda cari di website Shopee?" />
 
                     <RadioGroup
@@ -909,19 +1034,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -943,6 +1073,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
                         android:text="e. Apakah ada fitur navigasi yang Anda rasa kurang atau perlu perbaikan di website Shopee?" />
 
                     <RadioGroup
@@ -952,19 +1083,24 @@
                         android:orientation="horizontal">
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="1"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2" />
+                            android:text="2"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3" />
+                            android:text="3"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4" />
+                            android:text="4"
+                            android:textColor="@android:color/black"/>
                         <RadioButton android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5" />
+                            android:text="5"
+                            android:textColor="@android:color/black"/>
                     </RadioGroup>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -972,17 +1108,15 @@
             <!-- Submit Button -->
             <Button
                 android:id="@+id/submit_all"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Submit"
                 android:layout_gravity="center"
-                android:padding="16dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/white"
-                android:background="@drawable/submit_button_background"
-                android:drawableLeft="@drawable/ic_submit"
-                android:drawablePadding="8dp"
-                android:gravity="center_vertical"/>
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
 
         </LinearLayout>
 

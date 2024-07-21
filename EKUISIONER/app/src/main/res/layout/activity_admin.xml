@@ -8,6 +8,25 @@
     android:background="@drawable/button_gradient"
     tools:context=".AdminActivity">
 
+    <TextView
+        android:id="@+id/admin_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Admin Dashboard"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:shadowColor="#80000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
+
     <ListView
         android:id="@+id/user_list_view"
         android:layout_width="0dp"
@@ -17,61 +36,24 @@
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/admin_title"
         app:layout_constraintBottom_toTopOf="@+id/approve_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/approve_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Show Percentages"
         android:textSize="16sp"
         android:padding="12dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
-
-    <!-- Container for percentages and chart -->
-    <LinearLayout
-        android:id="@+id/percentages_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/user_list_view"
-        app:layout_constraintBottom_toTopOf="@+id/approve_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/total_tokopedia_percentage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:text="Tokopedia Total Percentage: "
-            android:layout_marginBottom="8dp"/>
-
-        <TextView
-            android:id="@+id/total_shopee_percentage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:text="Shopee Total Percentage: "
-            android:layout_marginBottom="16dp"/>
-
-        <com.example.e_kuisioner.BarChartView
-            android:id="@+id/total_bar_chart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"/>
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

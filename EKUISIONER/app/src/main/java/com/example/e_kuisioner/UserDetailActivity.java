@@ -1,5 +1,6 @@
 package com.example.e_kuisioner;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -76,20 +77,20 @@ public class UserDetailActivity extends AppCompatActivity {
         try {
             userCursor = myDb.getDataById(userId);
             if (userCursor != null && userCursor.moveToFirst()) {
-                String name = userCursor.getString(userCursor.getColumnIndex("NAME"));
-                int age = userCursor.getInt(userCursor.getColumnIndex("AGE"));
-                String job = userCursor.getString(userCursor.getColumnIndex("JOB"));
-                String email = userCursor.getString(userCursor.getColumnIndex("EMAIL"));
+                @SuppressLint("Range") String name = userCursor.getString(userCursor.getColumnIndex("NAME"));
+                @SuppressLint("Range") int age = userCursor.getInt(userCursor.getColumnIndex("AGE"));
+                @SuppressLint("Range") String job = userCursor.getString(userCursor.getColumnIndex("JOB"));
+                @SuppressLint("Range") String email = userCursor.getString(userCursor.getColumnIndex("EMAIL"));
 
                 StringBuilder userDetails = new StringBuilder();
-                userDetails.append("Name: ").append(name).append("\n");
-                userDetails.append("Age: ").append(age).append("\n");
-                userDetails.append("Job: ").append(job).append("\n");
-                userDetails.append("Email: ").append(email).append("\n");
+                userDetails.append("Nama        : ").append(name).append("\n");
+                userDetails.append("Umur         : ").append(age).append("\n");
+                userDetails.append("Pekerjaan : ").append(job).append("\n");
+                userDetails.append("Email         : ").append(email).append("\n");
 
                 userDetailTextView.setText(userDetails.toString());
 
-                int isApproved = userCursor.getInt(userCursor.getColumnIndex("IS_APPROVED"));
+                @SuppressLint("Range") int isApproved = userCursor.getInt(userCursor.getColumnIndex("IS_APPROVED"));
                 if (isApproved == 1) {
                     approveButton.setVisibility(View.GONE);
                     editButton.setVisibility(View.VISIBLE);
@@ -105,10 +106,10 @@ public class UserDetailActivity extends AppCompatActivity {
 
             questionnaireCursor = myDb.getQuestionnaireData(userId);
             if (questionnaireCursor != null && questionnaireCursor.moveToFirst()) {
-                int tokopediaValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_3));
-                int shopeeValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_4));
-                int tokopediaPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
-                int shopeePercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
+                @SuppressLint("Range") int tokopediaValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_3));
+                @SuppressLint("Range") int shopeeValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_4));
+                @SuppressLint("Range") int tokopediaPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
+                @SuppressLint("Range") int shopeePercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
 
                 Log.d("UserDetailActivity", "Tokopedia Value: " + tokopediaValue);
                 Log.d("UserDetailActivity", "Shopee Value: " + shopeeValue);

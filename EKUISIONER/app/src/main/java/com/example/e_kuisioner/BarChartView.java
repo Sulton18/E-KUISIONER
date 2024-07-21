@@ -1,4 +1,3 @@
-// BarChartView.java
 package com.example.e_kuisioner;
 
 import android.content.Context;
@@ -54,11 +53,11 @@ public class BarChartView extends View {
         int height = getHeight();
         int barWidth = width / 4;
 
-        // Draw vertical percentage lines
+        // Draw vertical percentage lines and labels
         for (int i = 0; i <= 4; i++) {
             int y = height - (height * i / 4);
             canvas.drawLine(0, y, width, y, linePaint);
-            canvas.drawText(i * 25 + "%", 10, y - 10, textPaint);
+            canvas.drawText((i * 25) + "%", 10, y - 10, textPaint);
         }
 
         // Draw Tokopedia bar
@@ -74,16 +73,21 @@ public class BarChartView extends View {
         canvas.drawRect(barWidth * 3, height - shopeeBarHeight, barWidth * 4, height, barPaint);
 
         // Draw labels for bars
-        textPaint.setColor(Color.BLUE);
-        canvas.drawText("Tokopedia", barWidth + (barWidth / 2) - 50, height + 50, textPaint);
-
-        textPaint.setColor(Color.GREEN);
-        canvas.drawText("Shopee", barWidth * 3 + (barWidth / 2) - 50, height + 50, textPaint);
-
-        // Draw horizontal line and bottom labels
-        canvas.drawLine(0, height + 20, width, height + 20, linePaint);
         textPaint.setColor(Color.BLACK);
-        canvas.drawText("SHOPEE", barWidth * 3 + (barWidth / 2) - 50, height + 100, textPaint);
-        canvas.drawText("TOKOPEDIA", barWidth + (barWidth / 2) - 70, height + 100, textPaint);
+        canvas.drawText("Tokopedia", barWidth + (barWidth / 2) - 50, height + 60, textPaint);
+
+        textPaint.setColor(Color.HSVToColor(hsv));
+        canvas.drawText("Shopee", barWidth * 3 + (barWidth / 2) - 50, height + 60, textPaint);
+
+        // Draw percentage labels on top of bars
+        textPaint.setColor(Color.BLACK);
+        canvas.drawText(tokopediaPercentage + "%", barWidth + (barWidth / 2) - 30, height - tokopediaBarHeight - 10, textPaint);
+        canvas.drawText(shopeePercentage + "%", barWidth * 3 + (barWidth / 2) - 30, height - shopeeBarHeight - 10, textPaint);
+
+        // Draw bottom labels
+        canvas.drawLine(0, height + 80, width, height + 80, linePaint);
+        textPaint.setColor(Color.BLACK);
+        canvas.drawText("TOKOPEDIA", barWidth + (barWidth / 2) - 50, height + 120, textPaint);
+        canvas.drawText("SHOPEE", barWidth * 3 + (barWidth / 2) - 50, height + 120, textPaint);
     }
 }

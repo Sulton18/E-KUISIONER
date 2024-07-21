@@ -22,6 +22,7 @@
         </activity>
 
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".ScoreScaleActivity" />
         <activity android:name=".QuestionnaireActivity" />
         <activity android:name=".ResultsActivity" />
         <activity android:name=".AdminActivity" />

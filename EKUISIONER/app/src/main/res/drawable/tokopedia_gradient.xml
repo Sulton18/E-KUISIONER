@@ -4,7 +4,7 @@
         <shape android:shape="rectangle">
             <gradient
                 android:startColor="@color/primaryColorDark"
-                android:endColor="@color/primaryColor"
+                android:endColor="@color/hijau"
                 android:angle="45"/>
             <corners android:radius="0dp" />
             <padding android:left="16dp" android:right="16dp" android:top="12dp" android:bottom="12dp"/>
@@ -13,8 +13,8 @@
     <item>
         <shape android:shape="rectangle">
             <gradient
-                android:startColor="@color/primaryColor"
-                android:endColor="@color/primaryColorLight"
+                android:startColor="@color/hijau"
+                android:endColor="@color/primaryColorDarkTokopedia"
                 android:angle="45"/>
             <corners android:radius="0dp" />
             <padding android:left="16dp" android:right="16dp" android:top="12dp" android:bottom="12dp"/>

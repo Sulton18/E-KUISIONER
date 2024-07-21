@@ -26,30 +26,68 @@
 
             <TextView
                 android:id="@+id/user_detail_text_view"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:text="User Details" />
 
-            <TextView
-                android:id="@+id/tokopedia_value_text_view"
-                android:layout_width="match_parent"
+            <!-- Kotak dan TextView Tokopedia -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tokopedia_results_container"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:text="Tokopedia Value: " />
+                android:layout_marginTop="16dp">
 
-            <TextView
-                android:id="@+id/shopee_value_text_view"
-                android:layout_width="match_parent"
+                <View
+                    android:id="@+id/tokopedia_result_box"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@color/hijau"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tokopedia_value_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:text="Tokopedia Value: "
+                    app:layout_constraintStart_toEndOf="@id/tokopedia_result_box"
+                    app:layout_constraintTop_toTopOf="@id/tokopedia_result_box"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Kotak dan TextView Shopee -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/shopee_results_container"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:text="Shopee Value: " />
+                android:layout_marginTop="8dp">
+
+                <View
+                    android:id="@+id/shopee_result_box"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@color/orange"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/shopee_value_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:text="Shopee Value: "
+                    app:layout_constraintStart_toEndOf="@id/shopee_result_box"
+                    app:layout_constraintTop_toTopOf="@id/shopee_result_box"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Horizontal Button Layout -->
             <LinearLayout

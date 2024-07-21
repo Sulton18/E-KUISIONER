@@ -26,10 +26,6 @@ public class AdminActivity extends AppCompatActivity {
     private List<String> userIdList;
     private List<String> userDisplayList;
     private Button approveButton;
-    private LinearLayout percentagesContainer;
-    private TextView totalTokopediaPercentageTextView;
-    private TextView totalShopeePercentageTextView;
-    private BarChartView totalBarChartView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +36,6 @@ public class AdminActivity extends AppCompatActivity {
         myDb = new DatabaseHelper(this);
         userListView = findViewById(R.id.user_list_view);
         approveButton = findViewById(R.id.approve_button);
-        percentagesContainer = findViewById(R.id.percentages_container);
-        totalTokopediaPercentageTextView = findViewById(R.id.total_tokopedia_percentage);
-        totalShopeePercentageTextView = findViewById(R.id.total_shopee_percentage);
-        totalBarChartView = findViewById(R.id.total_bar_chart);
 
         userIdList = new ArrayList<>();
         userDisplayList = new ArrayList<>();
@@ -82,13 +74,13 @@ public class AdminActivity extends AppCompatActivity {
 
         while (cursor.moveToNext()) {
             @SuppressLint("Range") String userId = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_1));
-            @SuppressLint("Range") String email = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_2));
+            @SuppressLint("Range") String email = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_4));
             userDisplayList.add(email);
             userIdList.add(userId);
         }
         cursor.close();
 
-        userAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, userDisplayList);
+        userAdapter = new ArrayAdapter<>(this, R.layout.list_view, R.id.text_view_item, userDisplayList);
         userListView.setAdapter(userAdapter);
     }
 
