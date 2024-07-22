@@ -1,5 +1,6 @@
 package com.example.e_kuisioner;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -50,6 +51,7 @@ public class EditUserActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("Range")
     private void loadUserDetails(String userId) {
         Cursor cursor = myDb.getDataById(userId);
         if (cursor != null && cursor.moveToFirst()) {
@@ -73,7 +75,7 @@ public class EditUserActivity extends AppCompatActivity {
 
         if (isUpdated) {
             Toast.makeText(this, "User details updated", Toast.LENGTH_LONG).show();
-            finish(); // Close the activity
+            finish();
         } else {
             Toast.makeText(this, "Update failed", Toast.LENGTH_LONG).show();
         }

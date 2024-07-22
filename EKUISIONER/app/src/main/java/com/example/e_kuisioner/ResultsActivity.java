@@ -29,7 +29,6 @@ public class ResultsActivity extends AppCompatActivity {
         job = findViewById(R.id.job);
         barChartView = findViewById(R.id.bar_chart);
 
-        // Retrieve data from the database
         userId = getIntent().getStringExtra("USER_ID");
 
         Cursor userCursor = myDb.getDataById(userId);
@@ -50,14 +49,12 @@ public class ResultsActivity extends AppCompatActivity {
         Cursor data = myDb.getQuestionnaireData(userId);
 
         if (data != null && data.moveToFirst()) {
-            // Get values from cursor
             @SuppressLint("Range") int tokopediaValue = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_3));
             @SuppressLint("Range") int shopeeValue = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_4));
             @SuppressLint("Range") int tokopediaPercentage = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
             @SuppressLint("Range") int shopeePercentage = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
 
 
-            // Calculate summary
             tokopediaResults.setText("Tokopedia: " + tokopediaValue +"/50 " + "("+tokopediaPercentage + "%)");
             shopeeResults.setText("Shopee   : " + shopeeValue+"/50 " +"("+shopeePercentage + "%)");
             if(tokopediaValue > shopeeValue){
@@ -68,7 +65,6 @@ public class ResultsActivity extends AppCompatActivity {
                 allResults.setText("Tokopedia & Shopee Setara");
             }
 
-            // Set data in bar chart
             barChartView.setPercentages(tokopediaValue, tokopediaPercentage, shopeeValue, shopeePercentage);
 
             data.close();

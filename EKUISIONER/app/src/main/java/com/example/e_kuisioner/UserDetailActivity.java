@@ -173,7 +173,7 @@ public class UserDetailActivity extends AppCompatActivity {
         boolean isDeleted = myDb.deleteUser(userId);
         if (isDeleted) {
             Toast.makeText(this, "User deleted", Toast.LENGTH_LONG).show();
-            finish(); // Close the activity
+            finish();
         } else {
             Toast.makeText(this, "Deletion failed", Toast.LENGTH_LONG).show();
         }

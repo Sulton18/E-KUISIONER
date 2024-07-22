@@ -13,7 +13,6 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
 
-    // Initialize RadioGroups for questions
     RadioGroup tokopediaColorGroups[];
     RadioGroup tokopediaNavGroups[];
     RadioGroup shopeeColorGroups[];
@@ -30,7 +29,6 @@ public class QuestionnaireActivity extends AppCompatActivity {
 
         myDb = new DatabaseHelper(this);
 
-        // Retrieve the user ID from the intent
         userId = getIntent().getStringExtra("USER_ID");
         if (userId == null) {
             Toast.makeText(this, "User ID is missing", Toast.LENGTH_LONG).show();
@@ -38,7 +36,6 @@ public class QuestionnaireActivity extends AppCompatActivity {
             return;
         }
 
-        // Initialize RadioGroups for questions
         tokopediaColorGroups = new RadioGroup[]{
                 findViewById(R.id.tokopedia_color_1),
                 findViewById(R.id.tokopedia_color_2),
@@ -76,13 +73,11 @@ public class QuestionnaireActivity extends AppCompatActivity {
         View shopeeSection = findViewById(R.id.shopee_section);
         nextButton = findViewById(R.id.next_button);
 
-        // Hide Shopee section initially
         shopeeSection.setVisibility(View.GONE);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Hide Tokopedia section and show Shopee section
                 tokopediaSection.setVisibility(View.GONE);
                 shopeeSection.setVisibility(View.VISIBLE);
             }
@@ -91,13 +86,11 @@ public class QuestionnaireActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get answers from each section
                 int tokopediaColorTotal = getTotalCheckedValue(tokopediaColorGroups);
                 int tokopediaNavTotal = getTotalCheckedValue(tokopediaNavGroups);
                 int shopeeColorTotal = getTotalCheckedValue(shopeeColorGroups);
                 int shopeeNavTotal = getTotalCheckedValue(shopeeNavGroups);
 
-                // Check if all answers are valid
                 if (tokopediaColorTotal == -1 || tokopediaNavTotal == -1 || shopeeColorTotal == -1 || shopeeNavTotal == -1) {
                     Toast.makeText(QuestionnaireActivity.this, "Please answer all questions", Toast.LENGTH_LONG).show();
                     return;
@@ -106,7 +99,6 @@ public class QuestionnaireActivity extends AppCompatActivity {
                 int tokopediaNilai = tokopediaColorTotal + tokopediaNavTotal;
                 int shopeeNilai = shopeeColorTotal + shopeeNavTotal;
 
-                // Save data to database
                 boolean isInserted = myDb.insertQuestionnaireData(
                         userId, // Use the actual user ID
                         tokopediaNilai,
@@ -132,7 +124,7 @@ public class QuestionnaireActivity extends AppCompatActivity {
         for (RadioGroup group : groups) {
             int checkedRadioButtonId = group.getCheckedRadioButtonId();
             if (checkedRadioButtonId == -1) {
-                return -1; // Indicate error
+                return -1;
             }
 
             View radioButton = group.findViewById(checkedRadioButtonId);

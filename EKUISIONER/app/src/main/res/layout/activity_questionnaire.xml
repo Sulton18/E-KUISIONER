@@ -11,7 +11,7 @@
         android:background="@drawable/button_gradient"
         android:padding="1dp">
 
-        <!-- Tokopedia Section -->
+        <!-- Tokopedia -->
         <LinearLayout
             android:id="@+id/tokopedia_section"
             android:layout_width="match_parent"
@@ -568,7 +568,7 @@
 
         </LinearLayout>
 
-        <!-- Shopee Section -->
+        <!-- Shopee -->
         <LinearLayout
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/shopee_section"

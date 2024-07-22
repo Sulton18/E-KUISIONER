@@ -32,7 +32,6 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-        // Initialize views and DatabaseHelper
         myDb = new DatabaseHelper(this);
         userListView = findViewById(R.id.user_list_view);
         approveButton = findViewById(R.id.approve_button);
@@ -40,13 +39,11 @@ public class AdminActivity extends AppCompatActivity {
         userIdList = new ArrayList<>();
         userDisplayList = new ArrayList<>();
 
-        // Load all non-admin users into the ListView
         loadAllNonAdminUsers();
 
         userListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Handle item click to view user details
                 String userId = userIdList.get(position);
                 Intent intent = new Intent(AdminActivity.this, UserDetailActivity.class);
                 intent.putExtra("USER_ID", userId);
@@ -85,7 +82,7 @@ public class AdminActivity extends AppCompatActivity {
     }
 
     private void showOverallPercentages() {
-        Cursor cursor = myDb.getAllQuestionnaireData(); // Retrieve data for all users
+        Cursor cursor = myDb.getAllQuestionnaireData();
 
         int totalTokopediaValue = 0;
         int totalShopeeValue = 0;
@@ -120,7 +117,6 @@ public class AdminActivity extends AppCompatActivity {
             totalShopeePercentage = 0;
         }
 
-        // Start PercentagesActivity
         Intent intent = new Intent(AdminActivity.this, PercentagesActivity.class);
         intent.putExtra("TOKOPEDIA_VALUE", totalTokopediaValue);
         intent.putExtra("TOKOPEDIA_PERCENTAGE", totalTokopediaPercentage);

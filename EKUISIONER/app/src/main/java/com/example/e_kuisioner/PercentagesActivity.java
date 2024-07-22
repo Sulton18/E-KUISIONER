@@ -27,12 +27,11 @@ public class PercentagesActivity extends AppCompatActivity {
 
         loadAllUserPercentages();
 
-        // Set data to BarChartView
         totalBarChartView.setUserPercentages(userPercentages);
     }
 
     private void loadAllUserPercentages() {
-        Cursor cursor = myDb.getAllQuestionnaireData(); // Retrieve data for all users
+        Cursor cursor = myDb.getAllQuestionnaireData();
 
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "No questionnaire data found", Toast.LENGTH_LONG).show();
@@ -44,7 +43,6 @@ public class PercentagesActivity extends AppCompatActivity {
             @SuppressLint("Range") int tokopediaPercentage = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
             @SuppressLint("Range") int shopeePercentage = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
 
-            // Retrieve user name from user_table based on userId
             Cursor userCursor = myDb.getDataById(userId);
             String userName = "";
             if (userCursor.moveToFirst()) {
@@ -62,13 +60,13 @@ public class PercentagesActivity extends AppCompatActivity {
 
 class UserPercentage {
     String userId;
-    String userName; // Added field
+    String userName;
     int tokopediaPercentage;
     int shopeePercentage;
 
     UserPercentage(String userId, String userName, int tokopediaPercentage, int shopeePercentage) {
         this.userId = userId;
-        this.userName = userName; // Initialize userName
+        this.userName = userName;
         this.tokopediaPercentage = tokopediaPercentage;
         this.shopeePercentage = shopeePercentage;
     }

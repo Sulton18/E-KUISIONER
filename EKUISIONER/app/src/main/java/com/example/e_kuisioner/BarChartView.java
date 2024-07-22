@@ -63,26 +63,22 @@ public class BarChartView extends View {
         int tokopediaBarHeight = height * tokopediaPercentage / 125;
         canvas.drawRect(barWidth, height - tokopediaBarHeight, barWidth * 2, height, barPaint);
 
-        // Draw Shopee bar with orange color
         float[] hsv = new float[3];
-        Color.RGBToHSV(255, 165, 0, hsv); // RGB values for orange
+        Color.RGBToHSV(255, 165, 0, hsv);
         barPaint.setColor(Color.HSVToColor(hsv));
         int shopeeBarHeight = height * shopeePercentage / 100;
         canvas.drawRect(barWidth * 3, height - shopeeBarHeight, barWidth * 4, height, barPaint);
 
-        // Draw labels for bars
         textPaint.setColor(Color.BLACK);
         canvas.drawText("Tokopedia", barWidth + (barWidth / 2) - 50, height + 60, textPaint);
 
         textPaint.setColor(Color.HSVToColor(hsv));
         canvas.drawText("Shopee", barWidth * 3 + (barWidth / 2) - 50, height + 60, textPaint);
 
-        // Draw percentage labels on top of bars
         textPaint.setColor(Color.BLACK);
         canvas.drawText(tokopediaPercentage + "%", barWidth + (barWidth / 2) - 30, height - tokopediaBarHeight - 10, textPaint);
         canvas.drawText(shopeePercentage + "%", barWidth * 3 + (barWidth / 2) - 30, height - shopeeBarHeight - 10, textPaint);
 
-        // Draw bottom labels
         canvas.drawLine(0, height + 80, width, height + 80, linePaint);
         textPaint.setColor(Color.BLACK);
         canvas.drawText("TOKOPEDIA", barWidth + (barWidth / 2) - 50, height + 120, textPaint);

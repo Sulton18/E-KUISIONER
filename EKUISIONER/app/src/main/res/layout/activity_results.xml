@@ -52,7 +52,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <!-- Tokopedia Results with Green Box -->
             <RelativeLayout
                 android:id="@+id/tokopedia_results_container"
                 android:layout_width="wrap_content"

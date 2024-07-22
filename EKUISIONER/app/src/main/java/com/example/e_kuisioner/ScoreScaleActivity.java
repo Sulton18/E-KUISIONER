@@ -18,10 +18,8 @@ public class ScoreScaleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_scale);
 
-        // Retrieve the USER_ID from the intent
         userId = getIntent().getStringExtra("USER_ID");
         if (userId == null) {
-            // Handle the case where USER_ID is not passed
             userId = "";
         }
 
@@ -30,7 +28,6 @@ public class ScoreScaleActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to QuestionnaireActivity with USER_ID
                 Intent intent = new Intent(ScoreScaleActivity.this, QuestionnaireActivity.class);
                 intent.putExtra("USER_ID", userId);
                 startActivity(intent);

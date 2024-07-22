@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_4 = "NAME";
     public static final String COL_5 = "AGE";
     public static final String COL_6 = "JOB";
-    public static final String COL_7 = "USER_TYPE"; // New column for user type (e.g., 'admin' or 'user')
+    public static final String COL_7 = "USER_TYPE";
     public static final String COL_8 = "IS_APPROVED";
 
     public static final String QUESTIONNAIRE_TABLE_NAME = "questionnaire_table";
@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String QUESTIONNAIRE_COL_5 = "TOKOPEDIA_PERCENTAGE";
     public static final String QUESTIONNAIRE_COL_6 = "SHOPEE_PERCENTAGE";
 
-    private static final int DATABASE_VERSION = 4; // Incremented version
+    private static final int DATABASE_VERSION = 4;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -37,11 +37,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Create user_table with the new USER_TYPE column
         db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "EMAIL TEXT, PASSWORD TEXT, NAME TEXT, AGE INTEGER, JOB TEXT, USER_TYPE TEXT, IS_APPROVED INTEGER)");
 
-        // Create questionnaire_table
         db.execSQL("CREATE TABLE " + QUESTIONNAIRE_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "USER_ID TEXT, TOKOPEDIA_VALUE INTEGER, SHOPEE_VALUE INTEGER, TOKOPEDIA_PERCENTAGE INTEGER, SHOPEE_PERCENTAGE INTEGER)");
     }
@@ -49,7 +47,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < 4) {
-            // Add USER_TYPE column if it does not exist
             db.execSQL("ALTER TABLE " + TABLE_NAME + " ADD COLUMN USER_TYPE TEXT");
         }
     }
@@ -62,9 +59,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4, name);
         contentValues.put(COL_5, age);
         contentValues.put(COL_6, job);
-        contentValues.put(COL_7, userType); // 'user' or 'admin'
+        contentValues.put(COL_7, userType);
 
-        // Set IS_APPROVED to 1 for admin users, otherwise default to 0
         if ("admin".equals(userType)) {
             contentValues.put(COL_8, 1);
         } else {
@@ -83,7 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean approveUser(String userId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_8, 1); // Set as approved
+        contentValues.put(COL_8, 1);
         long result = db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{userId});
         return result > 0;
     }
@@ -116,7 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     private int calculatePercentage(int value) {
-        return Math.round((value / 50.0f) * 100); // Return as integer
+        return Math.round((value / 50.0f) * 100);
     }
 
     public Cursor getQuestionnaireData(String userId) {
@@ -153,9 +149,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + QUESTIONNAIRE_TABLE_NAME, null);
     }
 
-    // Method to calculate total and average percentages
     public int[] calculateTotalPercentages() {
-        int[] totals = new int[4]; // Index 0: totalTokopediaValue, 1: totalShopeeValue, 2: averageTokopediaPercentage, 3: averageShopeePercentage
+        int[] totals = new int[4];
         Cursor cursor = getAllQuestionnaireData();
 
         if (cursor.getCount() == 0) {
@@ -179,8 +174,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
 
         if (count > 0) {
-            totals[2] /= count; // Average Tokopedia percentage
-            totals[3] /= count; // Average Shopee percentage
+            totals[2] /= count;
+            totals[3] /= count;
         }
 
         return totals;
