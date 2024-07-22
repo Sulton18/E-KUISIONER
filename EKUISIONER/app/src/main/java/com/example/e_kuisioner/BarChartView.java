@@ -53,16 +53,14 @@ public class BarChartView extends View {
         int height = getHeight();
         int barWidth = width / 4;
 
-        // Draw vertical percentage lines and labels
-        for (int i = 0; i <= 4; i++) {
-            int y = height - (height * i / 4);
+        for (int i = 0; i <= 5; i++) {
+            int y = height - (height * i / 5);
             canvas.drawLine(0, y, width, y, linePaint);
             canvas.drawText((i * 25) + "%", 10, y - 10, textPaint);
         }
 
-        // Draw Tokopedia bar
         barPaint.setColor(Color.GREEN);
-        int tokopediaBarHeight = height * tokopediaPercentage / 100;
+        int tokopediaBarHeight = height * tokopediaPercentage / 125;
         canvas.drawRect(barWidth, height - tokopediaBarHeight, barWidth * 2, height, barPaint);
 
         // Draw Shopee bar with orange color

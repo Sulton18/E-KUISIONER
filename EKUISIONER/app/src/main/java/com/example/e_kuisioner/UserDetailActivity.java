@@ -20,6 +20,7 @@ public class UserDetailActivity extends AppCompatActivity {
     private TextView userDetailTextView;
     private TextView tokopediaValueTextView;
     private TextView shopeeValueTextView;
+    private TextView allResults;
     private Button approveButton;
     private Button editButton;
     private Button deleteButton;
@@ -35,6 +36,7 @@ public class UserDetailActivity extends AppCompatActivity {
         userDetailTextView = findViewById(R.id.user_detail_text_view);
         tokopediaValueTextView = findViewById(R.id.tokopedia_value_text_view);
         shopeeValueTextView = findViewById(R.id.shopee_value_text_view);
+        allResults = findViewById(R.id.all_results);
         approveButton = findViewById(R.id.approve_button);
         editButton = findViewById(R.id.edit_button);
         deleteButton = findViewById(R.id.delete_button);
@@ -118,6 +120,14 @@ public class UserDetailActivity extends AppCompatActivity {
 
                 tokopediaValueTextView.setText("Tokopedia Value: " + tokopediaValue + " (" + tokopediaPercentage + "%)");
                 shopeeValueTextView.setText("Shopee Value: " + shopeeValue + " (" + shopeePercentage + "%)");
+
+                if(tokopediaValue > shopeeValue){
+                    allResults.setText("Tokopedia Lebih Baik Dari Pada Shopee");
+                }else if(tokopediaValue < shopeeValue){
+                    allResults.setText("Tokopedia Lebih Baik Dari Pada Shopee");
+                }else if(tokopediaValue == shopeeValue) {
+                    allResults.setText("Tokopedia & Shopee Setara");
+                }
 
                 barChartView.setPercentages(tokopediaValue, tokopediaPercentage, shopeeValue, shopeePercentage);
             } else {

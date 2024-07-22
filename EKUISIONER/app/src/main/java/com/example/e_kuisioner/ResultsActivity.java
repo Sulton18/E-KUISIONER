@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ResultsActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
-    TextView nama,age,job,tokopediaResults, shopeeResults;
+    TextView nama,age,job,tokopediaResults, shopeeResults,allResults;
     BarChartView barChartView;
     private String userId;
 
@@ -23,6 +23,7 @@ public class ResultsActivity extends AppCompatActivity {
 
         tokopediaResults = findViewById(R.id.tokopedia_results);
         shopeeResults = findViewById(R.id.shopee_results);
+        allResults = findViewById(R.id.all_results);
         nama = findViewById(R.id.nama);
         age = findViewById(R.id.age);
         job = findViewById(R.id.job);
@@ -59,6 +60,13 @@ public class ResultsActivity extends AppCompatActivity {
             // Calculate summary
             tokopediaResults.setText("Tokopedia: " + tokopediaValue +"/50 " + "("+tokopediaPercentage + "%)");
             shopeeResults.setText("Shopee   : " + shopeeValue+"/50 " +"("+shopeePercentage + "%)");
+            if(tokopediaValue > shopeeValue){
+                allResults.setText("Tokopedia Lebih Baik Dari Pada Shopee");
+            }else if(tokopediaValue < shopeeValue){
+                allResults.setText("Tokopedia Lebih Baik Dari Pada Shopee");
+            }else if(tokopediaValue == shopeeValue){
+                allResults.setText("Tokopedia & Shopee Setara");
+            }
 
             // Set data in bar chart
             barChartView.setPercentages(tokopediaValue, tokopediaPercentage, shopeeValue, shopeePercentage);

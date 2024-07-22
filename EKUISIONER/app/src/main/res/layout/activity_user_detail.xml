@@ -8,15 +8,16 @@
     tools:context=".UserDetailActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp"
         app:cardBackgroundColor="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,12 +29,11 @@
                 android:id="@+id/user_detail_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:text="User Details"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"
-                android:text="User Details" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            <!-- Kotak dan TextView Tokopedia -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/tokopedia_results_container"
                 android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
                     android:layout_height="16dp"
                     android:background="@color/hijau"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tokopedia_value_text_view"
@@ -54,14 +54,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="2dp"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black"
                     android:text="Tokopedia Value: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@id/tokopedia_result_box"
-                    app:layout_constraintTop_toTopOf="@id/tokopedia_result_box"/>
+                    app:layout_constraintTop_toTopOf="@id/tokopedia_result_box" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Kotak dan TextView Shopee -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/shopee_results_container"
                 android:layout_width="wrap_content"
@@ -74,7 +73,7 @@
                     android:layout_height="16dp"
                     android:background="@color/orange"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/shopee_value_text_view"
@@ -82,51 +81,50 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="2dp"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/black"
                     android:text="Shopee Value: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@id/shopee_result_box"
-                    app:layout_constraintTop_toTopOf="@id/shopee_result_box"/>
+                    app:layout_constraintTop_toTopOf="@id/shopee_result_box" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Horizontal Button Layout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="16dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/approve_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/colorPrimary"
                     android:text="Approve"
                     android:textColor="@android:color/white"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:textSize="16sp"
-                    android:layout_marginEnd="8dp"/>
+                    android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/edit_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/biru"
                     android:text="Edit"
                     android:textColor="@android:color/white"
-                    android:backgroundTint="@color/biru"
                     android:textSize="16sp"
-                    android:layout_marginEnd="8dp"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <Button
                     android:id="@+id/delete_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/red"
                     android:text="Delete"
                     android:textColor="@android:color/white"
-                    android:backgroundTint="@color/red"
                     android:textSize="16sp"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -134,9 +132,30 @@
                 android:id="@+id/bar_chart"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp" />
 
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/all_results"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="All Results"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
