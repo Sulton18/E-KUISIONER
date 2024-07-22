@@ -124,7 +124,7 @@ public class UserDetailActivity extends AppCompatActivity {
                 if(tokopediaValue > shopeeValue){
                     allResults.setText("Tokopedia Lebih Baik Dari Pada Shopee");
                 }else if(tokopediaValue < shopeeValue){
-                    allResults.setText("Tokopedia Lebih Baik Dari Pada Shopee");
+                    allResults.setText("Shopee Lebih Baik Dari Pada Tokopedia");
                 }else if(tokopediaValue == shopeeValue) {
                     allResults.setText("Tokopedia & Shopee Setara");
                 }
