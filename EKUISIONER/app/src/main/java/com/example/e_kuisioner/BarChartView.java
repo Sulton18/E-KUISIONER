@@ -66,7 +66,7 @@ public class BarChartView extends View {
         float[] hsv = new float[3];
         Color.RGBToHSV(255, 165, 0, hsv);
         barPaint.setColor(Color.HSVToColor(hsv));
-        int shopeeBarHeight = height * shopeePercentage / 100;
+        int shopeeBarHeight = height * shopeePercentage / 125;
         canvas.drawRect(barWidth * 3, height - shopeeBarHeight, barWidth * 4, height, barPaint);
 
         textPaint.setColor(Color.BLACK);

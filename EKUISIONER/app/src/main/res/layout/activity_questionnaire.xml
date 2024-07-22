@@ -18,19 +18,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/tokopedia_gradient"
-            android:padding="5dp"
+            android:padding="10dp"
             xmlns:app="http://schemas.android.com/apk/res-auto">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Warna Tokopedia"
-                android:textSize="20sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginBottom="12dp"
+                android:textColor="@color/white"
+                android:layout_marginBottom="1dp"
                 android:padding="8dp"
-                android:shadowColor="#80000000"
+                android:shadowColor="#80FBF9F9"
                 android:shadowDx="1"
                 android:shadowDy="1"
                 android:shadowRadius="2"
@@ -43,7 +43,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -93,7 +93,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -143,7 +143,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -193,7 +193,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -243,7 +243,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -292,12 +292,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Navigasi Tokopedia"
-                android:textSize="20sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginBottom="12dp"
+                android:textColor="@color/white"
+                android:layout_marginBottom="1dp"
                 android:padding="8dp"
-                android:shadowColor="#80000000"
+                android:shadowColor="#80FBF9F9"
                 android:shadowDx="1"
                 android:shadowDy="1"
                 android:shadowRadius="2"
@@ -309,7 +309,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -359,7 +359,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -409,7 +409,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -459,7 +459,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -509,7 +509,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -584,12 +584,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Warna Shopee"
-                android:textSize="20sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginBottom="12dp"
+                android:textColor="@color/white"
+                android:layout_marginBottom="1dp"
                 android:padding="8dp"
-                android:shadowColor="#80000000"
+                android:shadowColor="#80FBF9F9"
                 android:shadowDx="1"
                 android:shadowDy="1"
                 android:shadowRadius="2"
@@ -601,7 +601,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -651,7 +651,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -700,7 +700,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -750,7 +750,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -800,7 +800,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -848,12 +848,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Navigasi Shopee"
-                android:textSize="20sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginBottom="12dp"
+                android:textColor="@color/white"
+                android:layout_marginBottom="1dp"
                 android:padding="8dp"
-                android:shadowColor="#80000000"
+                android:shadowColor="#80FBF9F9"
                 android:shadowDx="1"
                 android:shadowDy="1"
                 android:shadowRadius="2"
@@ -865,7 +865,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -915,7 +915,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -964,7 +964,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -1013,7 +1013,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
@@ -1062,7 +1062,7 @@
                 android:layout_marginBottom="5dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="1dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@android:color/white"
                 tools:ignore="ExtraText">
 
                 <LinearLayout
