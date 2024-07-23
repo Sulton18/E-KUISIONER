@@ -24,12 +24,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String QUESTIONNAIRE_TABLE_NAME = "questionnaire_table";
     public static final String QUESTIONNAIRE_COL_1 = "ID";
     public static final String QUESTIONNAIRE_COL_2 = "USER_ID";
-    public static final String QUESTIONNAIRE_COL_3 = "TOKOPEDIA_VALUE";
-    public static final String QUESTIONNAIRE_COL_4 = "SHOPEE_VALUE";
-    public static final String QUESTIONNAIRE_COL_5 = "TOKOPEDIA_PERCENTAGE";
-    public static final String QUESTIONNAIRE_COL_6 = "SHOPEE_PERCENTAGE";
+    public static final String QUESTIONNAIRE_COL_3 = "TOKOPEDIA_WARNA_VALUE";
+    public static final String QUESTIONNAIRE_COL_4 = "TOKOPEDIA_NAVIGASI_VALUE";
+    public static final String QUESTIONNAIRE_COL_5 = "SHOPEE_WARNA_VALUE";
+    public static final String QUESTIONNAIRE_COL_6 = "SHOPEE_NAVIGASI_VALUE";
+    public static final String QUESTIONNAIRE_COL_7 = "TOKOPEDIA_WARNA_PERCENTAGE";
+    public static final String QUESTIONNAIRE_COL_8 = "TOKOPEDIA_NAVIGASI_PERCENTAGE";
+    public static final String QUESTIONNAIRE_COL_9 = "SHOPEE_WARNA_PERCENTAGE";
+    public static final String QUESTIONNAIRE_COL_10 = "SHOPEE_NAVIGASI_PERCENTAGE";
+    public static final String QUESTIONNAIRE_COL_11 = "TOKOPEDIA_VALUE";
+    public static final String QUESTIONNAIRE_COL_12 = "SHOPEE_VALUE";
+    public static final String QUESTIONNAIRE_COL_13 = "TOKOPEDIA_PERCENTAGE";
+    public static final String QUESTIONNAIRE_COL_14 = "SHOPEE_PERCENTAGE";
 
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 7;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,7 +49,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "EMAIL TEXT, PASSWORD TEXT, NAME TEXT, AGE INTEGER, JOB TEXT, USER_TYPE TEXT, IS_APPROVED INTEGER)");
 
         db.execSQL("CREATE TABLE " + QUESTIONNAIRE_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "USER_ID TEXT, TOKOPEDIA_VALUE INTEGER, SHOPEE_VALUE INTEGER, TOKOPEDIA_PERCENTAGE INTEGER, SHOPEE_PERCENTAGE INTEGER)");
+                "USER_ID TEXT, TOKOPEDIA_WARNA_VALUE INTEGER, TOKOPEDIA_NAVIGASI_VALUE INTEGER, SHOPEE_WARNA_VALUE INTEGER, "+
+                "SHOPEE_NAVIGASI_VALUE INTEGER, TOKOPEDIA_WARNA_PERCENTAGE INTEGER,TOKOPEDIA_NAVIGASI_PERCENTAGE INTEGER, "+
+                "SHOPEE_WARNA_PERCENTAGE INTEGER, SHOPEE_NAVIGASI_PERCENTAGE INTEGER, TOKOPEDIA_VALUE INTEGER,SHOPEE_VALUE INTEGER, " +
+                "TOKOPEDIA_PERCENTAGE INTEGER, SHOPEE_PERCENTAGE INTEGER)");
     }
 
     @Override
@@ -94,24 +105,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE EMAIL = ? AND PASSWORD = ?", new String[]{email, password});
     }
 
-    public boolean insertQuestionnaireData(String userId, int tokopediaValue, int shopeeValue) {
+    public boolean insertQuestionnaireData(String userId, int tokopediaWarnaValue, int tokopediaNavigasiValue,int shopeeWarnaValue, int shopeeNavigasiValue) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        int tokopediaPercentage = calculatePercentage(tokopediaValue);
-        int shopeePercentage = calculatePercentage(shopeeValue);
+        int tokopediaWarnaPercentage = calculatePercentage(tokopediaWarnaValue);
+        int tokopediaNavigasiPercentage = calculatePercentage(tokopediaNavigasiValue);
+        int shopeeWarnaPercentage = calculatePercentage(shopeeWarnaValue);
+        int shopeeNavigasiPercentage = calculatePercentage(shopeeNavigasiValue);
+
+        int tokopediaValue = tokopediaWarnaValue + tokopediaNavigasiValue;
+        int shopeeValue = shopeeWarnaValue + shopeeNavigasiValue;
+        int tokopediaPercentage = calculatePercentageAll(tokopediaValue);
+        int shopeePercentage = calculatePercentageAll(shopeeValue);
 
         contentValues.put(QUESTIONNAIRE_COL_2, userId);
-        contentValues.put(QUESTIONNAIRE_COL_3, tokopediaValue);
-        contentValues.put(QUESTIONNAIRE_COL_4, shopeeValue);
-        contentValues.put(QUESTIONNAIRE_COL_5, tokopediaPercentage);
-        contentValues.put(QUESTIONNAIRE_COL_6, shopeePercentage);
+        contentValues.put(QUESTIONNAIRE_COL_3, tokopediaWarnaValue);
+        contentValues.put(QUESTIONNAIRE_COL_4, tokopediaNavigasiValue);
+        contentValues.put(QUESTIONNAIRE_COL_5, shopeeWarnaValue);
+        contentValues.put(QUESTIONNAIRE_COL_6, shopeeNavigasiValue);
+        contentValues.put(QUESTIONNAIRE_COL_7, tokopediaWarnaPercentage);
+        contentValues.put(QUESTIONNAIRE_COL_8, tokopediaNavigasiPercentage);
+        contentValues.put(QUESTIONNAIRE_COL_9, shopeeWarnaPercentage);
+        contentValues.put(QUESTIONNAIRE_COL_10, shopeeNavigasiPercentage);
+        contentValues.put(QUESTIONNAIRE_COL_11, tokopediaValue);
+        contentValues.put(QUESTIONNAIRE_COL_12, shopeeValue);
+        contentValues.put(QUESTIONNAIRE_COL_13, tokopediaPercentage);
+        contentValues.put(QUESTIONNAIRE_COL_14, shopeePercentage);
 
         long result = db.insert(QUESTIONNAIRE_TABLE_NAME, null, contentValues);
         return result != -1;
     }
 
     private int calculatePercentage(int value) {
+        return Math.round((value / 25.0f) * 100);
+    }
+
+    private int calculatePercentageAll(int value) {
         return Math.round((value / 50.0f) * 100);
     }
 

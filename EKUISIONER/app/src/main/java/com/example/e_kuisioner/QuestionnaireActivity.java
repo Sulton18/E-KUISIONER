@@ -19,7 +19,9 @@ public class QuestionnaireActivity extends AppCompatActivity {
     RadioGroup shopeeNavGroups[];
 
     Button submitButton;
-    Button nextButton;
+    Button nextButtonWarnaTokopedia;
+    Button nextButtonWarnaShopee;
+    Button nextButtonNavigasiTokopedia;
     String userId;
 
     @Override
@@ -69,17 +71,39 @@ public class QuestionnaireActivity extends AppCompatActivity {
         };
 
         submitButton = findViewById(R.id.submit_all);
-        View tokopediaSection = findViewById(R.id.tokopedia_section);
-        View shopeeSection = findViewById(R.id.shopee_section);
-        nextButton = findViewById(R.id.next_button);
+        View tokopediaSectionWarna = findViewById(R.id.tokopedia_section_warna_tokopedia);
+        View tokopediaSectionNavigasi = findViewById(R.id.tokopedia_section_navigasi_tokopedia);
+        View shopeeSectionWarna = findViewById(R.id.shopee_section_warna_shopee);
+        View shopeeSectionNavigasi = findViewById(R.id.shopee_section_navigasi_shopee);
+        nextButtonWarnaTokopedia = findViewById(R.id.next_button_warna_tokopedia);
+        nextButtonWarnaShopee = findViewById(R.id.next_button_warna_shopee);
+        nextButtonNavigasiTokopedia = findViewById(R.id.next_button_navigasi_tokopedia);
 
-        shopeeSection.setVisibility(View.GONE);
+        tokopediaSectionNavigasi.setVisibility(View.GONE);
+        shopeeSectionWarna.setVisibility(View.GONE);
+        shopeeSectionNavigasi.setVisibility(View.GONE);
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        nextButtonWarnaTokopedia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tokopediaSection.setVisibility(View.GONE);
-                shopeeSection.setVisibility(View.VISIBLE);
+                tokopediaSectionWarna.setVisibility(View.GONE);
+                tokopediaSectionNavigasi.setVisibility(View.VISIBLE);
+            }
+        });
+
+        nextButtonNavigasiTokopedia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tokopediaSectionNavigasi.setVisibility(View.GONE);
+                shopeeSectionWarna.setVisibility(View.VISIBLE);
+            }
+        });
+
+        nextButtonWarnaShopee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shopeeSectionWarna.setVisibility(View.GONE);
+                shopeeSectionNavigasi.setVisibility(View.VISIBLE);
             }
         });
 
@@ -96,13 +120,12 @@ public class QuestionnaireActivity extends AppCompatActivity {
                     return;
                 }
 
-                int tokopediaNilai = tokopediaColorTotal + tokopediaNavTotal;
-                int shopeeNilai = shopeeColorTotal + shopeeNavTotal;
-
                 boolean isInserted = myDb.insertQuestionnaireData(
                         userId, // Use the actual user ID
-                        tokopediaNilai,
-                        shopeeNilai
+                        tokopediaColorTotal,
+                        tokopediaNavTotal,
+                        shopeeColorTotal,
+                        shopeeNavTotal
                 );
 
                 if (isInserted) {

@@ -18,13 +18,18 @@ public class UserDetailActivity extends AppCompatActivity {
 
     private DatabaseHelper myDb;
     private TextView userDetailTextView;
-    private TextView tokopediaValueTextView;
-    private TextView shopeeValueTextView;
+    private TextView tokopediaValueTextViewWarna;
+    private TextView tokopediaValueTextViewNavigasi;
+    private TextView shopeeValueTextViewWarna;
+    private TextView shopeeValueTextViewNavigasi;
+    private TextView allResultValueTokopedia;
+    private TextView allResultValueShopee;
     private TextView allResults;
     private Button approveButton;
     private Button editButton;
     private Button deleteButton;
-    private BarChartView barChartView;
+    private BarChartView3 barChartView;
+    private BarChartView barChartViewAll;
     private String userId;
 
     @Override
@@ -34,13 +39,18 @@ public class UserDetailActivity extends AppCompatActivity {
 
         myDb = new DatabaseHelper(this);
         userDetailTextView = findViewById(R.id.user_detail_text_view);
-        tokopediaValueTextView = findViewById(R.id.tokopedia_value_text_view);
-        shopeeValueTextView = findViewById(R.id.shopee_value_text_view);
+        tokopediaValueTextViewWarna = findViewById(R.id.tokopedia_value_text_view_warna);
+        tokopediaValueTextViewNavigasi = findViewById(R.id.tokopedia_value_text_view_navigasi);
+        shopeeValueTextViewWarna = findViewById(R.id.shopee_value_text_view_warna);
+        shopeeValueTextViewNavigasi = findViewById(R.id.shopee_value_text_view_navigasi);
+        allResultValueTokopedia = findViewById(R.id.all_result_value_tokopedia);
+        allResultValueShopee = findViewById(R.id.all_result_value_shopee);
         allResults = findViewById(R.id.all_results);
         approveButton = findViewById(R.id.approve_button);
         editButton = findViewById(R.id.edit_button);
         deleteButton = findViewById(R.id.delete_button);
         barChartView = findViewById(R.id.bar_chart);
+        barChartViewAll = findViewById(R.id.bar_chart_all);
 
         userId = getIntent().getStringExtra("USER_ID");
         if (userId != null) {
@@ -108,18 +118,27 @@ public class UserDetailActivity extends AppCompatActivity {
 
             questionnaireCursor = myDb.getQuestionnaireData(userId);
             if (questionnaireCursor != null && questionnaireCursor.moveToFirst()) {
-                @SuppressLint("Range") int tokopediaValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_3));
-                @SuppressLint("Range") int shopeeValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_4));
-                @SuppressLint("Range") int tokopediaPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
-                @SuppressLint("Range") int shopeePercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
+                @SuppressLint("Range") int tokopediaWarnaValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_3));
+                @SuppressLint("Range") int tokopediaNavigasiValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_4));
+                @SuppressLint("Range") int shopeeWarnaValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
+                @SuppressLint("Range") int shopeeNavigasiValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
+                @SuppressLint("Range") int tokopediaWarnaPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_7));
+                @SuppressLint("Range") int tokopediaNavigasiPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_8));
+                @SuppressLint("Range") int shopeeWarnaPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_9));
+                @SuppressLint("Range") int shopeeNavigasiPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_10));
+                @SuppressLint("Range") int tokopediaValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_11));
+                @SuppressLint("Range") int shopeeValue = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_12));
+                @SuppressLint("Range") int tokopediaPercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_13));
+                @SuppressLint("Range") int shopeePercentage = questionnaireCursor.getInt(questionnaireCursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_14));
 
-                Log.d("UserDetailActivity", "Tokopedia Value: " + tokopediaValue);
-                Log.d("UserDetailActivity", "Shopee Value: " + shopeeValue);
-                Log.d("UserDetailActivity", "Tokopedia Percentage: " + tokopediaPercentage);
-                Log.d("UserDetailActivity", "Shopee Percentage: " + shopeePercentage);
 
-                tokopediaValueTextView.setText("Tokopedia Value: " + tokopediaValue + " (" + tokopediaPercentage + "%)");
-                shopeeValueTextView.setText("Shopee Value: " + shopeeValue + " (" + shopeePercentage + "%)");
+                tokopediaValueTextViewWarna.setText("Tokopedia Warna Value: " + tokopediaWarnaValue + " (" + tokopediaWarnaPercentage + "%)");
+                tokopediaValueTextViewNavigasi.setText("Tokopedia Navigasi Value: " + tokopediaNavigasiValue + " (" + tokopediaNavigasiPercentage + "%)");
+                shopeeValueTextViewWarna.setText("Shopee Warna Value: " + shopeeWarnaValue + " (" + shopeeWarnaPercentage + "%)");
+                shopeeValueTextViewNavigasi.setText("Shopee Navigasi Value: " + shopeeNavigasiValue + " (" + shopeeNavigasiPercentage + "%)");
+
+                allResultValueTokopedia.setText("Tokopedia All Value: " + tokopediaValue + " (" + tokopediaPercentage + "%)");
+                allResultValueShopee.setText("Shopee All Value: " + shopeeValue + " (" + shopeePercentage + "%)");
 
                 if(tokopediaValue > shopeeValue){
                     allResults.setText("Tokopedia Lebih Baik Dari Pada Shopee");
@@ -129,7 +148,8 @@ public class UserDetailActivity extends AppCompatActivity {
                     allResults.setText("Tokopedia & Shopee Setara");
                 }
 
-                barChartView.setPercentages(tokopediaValue, tokopediaPercentage, shopeeValue, shopeePercentage);
+                barChartViewAll.setPercentages(tokopediaValue, tokopediaPercentage, shopeeValue, shopeePercentage);
+                barChartView.setPercentages(tokopediaWarnaValue, tokopediaNavigasiValue, tokopediaWarnaPercentage, tokopediaNavigasiPercentage,shopeeWarnaValue,shopeeNavigasiValue,shopeeWarnaPercentage,shopeeNavigasiPercentage);
             } else {
                 Toast.makeText(this, "No questionnaire data available for this user", Toast.LENGTH_LONG).show();
             }

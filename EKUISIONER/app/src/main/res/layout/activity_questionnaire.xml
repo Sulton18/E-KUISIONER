@@ -6,16 +6,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:background="@drawable/button_gradient"
         android:padding="1dp">
 
         <!-- Tokopedia -->
         <LinearLayout
-            android:id="@+id/tokopedia_section"
+            android:id="@+id/tokopedia_section_warna_tokopedia"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="800dp"
             android:orientation="vertical"
             android:background="@drawable/tokopedia_gradient"
             android:padding="10dp"
@@ -56,7 +55,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="a. Apakah warna di website Tokopedia membantu membedakan elemen-elemen penting misalnya tombol, navigasi, dan lain-lain?" />
+                        android:text="1. Apakah warna di website Tokopedia membantu membedakan elemen-elemen penting misalnya tombol, navigasi, dan lain-lain?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_color_1"
@@ -105,7 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="b. Apakah warna yang digunakan di website Tokopedia membuat Anda merasa nyaman saat berbelanja online?" />
+                        android:text="2. Apakah warna yang digunakan di website Tokopedia membuat Anda merasa nyaman saat berbelanja online?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_color_2"
@@ -155,7 +154,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="c. Apakah penggunaan warna tidak mengganggu atau membuat mata lelah saat menjelajahi website Tokopedia?" />
+                        android:text="3. Apakah penggunaan warna tidak mengganggu atau membuat mata lelah saat menjelajahi website Tokopedia?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_color_3"
@@ -205,7 +204,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="d. Seberapa efektifkah penggunaan warna dalam menarik perhatian Anda terhadap promo, diskon, atau produk baru di website Tokopedia?" />
+                        android:text="4. Seberapa efektifkah penggunaan warna dalam menarik perhatian Anda terhadap promo, diskon, atau produk baru di website Tokopedia?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_color_4"
@@ -255,7 +254,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="e. Seberapa menarik kombinasi warna yang digunakan pada antarmuka aplikasi Tokopedia?" />
+                        android:text="5. Seberapa menarik kombinasi warna yang digunakan pada antarmuka aplikasi Tokopedia?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_color_5"
@@ -288,6 +287,28 @@
             </androidx.cardview.widget.CardView>
 
 
+            <Button
+                android:id="@+id/next_button_warna_tokopedia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tokopedia_section_navigasi_tokopedia"
+            android:layout_width="match_parent"
+            android:layout_height="800dp"
+            android:orientation="vertical"
+            android:background="@drawable/tokopedia_gradient"
+            android:padding="10dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:visibility="gone">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -321,7 +342,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="a. Apakah struktur menu dan kategori produk di website Tokopedia tersusun dengan jelas dan mudah diikuti?" />
+                        android:text="1. Apakah struktur menu dan kategori produk di website Tokopedia tersusun dengan jelas dan mudah diikuti?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_nav_1"
@@ -371,7 +392,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="b. Apakah fitur pencarian produk di website Tokopedia berfungsi dengan baik dan memberikan hasil yang relevan?" />
+                        android:text="2. Apakah fitur pencarian produk di website Tokopedia berfungsi dengan baik dan memberikan hasil yang relevan?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_nav_2"
@@ -421,7 +442,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="c. Apakah informasi dan detail produk di website Tokopedia disajikan dengan jelas dan mudah dipahami?" />
+                        android:text="3. Apakah informasi dan detail produk di website Tokopedia disajikan dengan jelas dan mudah dipahami?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_nav_3"
@@ -471,7 +492,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="d. Seberapa mudahkah Anda menemukan informasi yang Anda cari di website Tokopedia?" />
+                        android:text="4. Seberapa mudahkah Anda menemukan informasi yang Anda cari di website Tokopedia?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_nav_4"
@@ -521,7 +542,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="e. Apakah ada fitur navigasi yang Anda rasa kurang atau perlu perbaikan di website Tokopedia?" />
+                        android:text="5. Apakah ada fitur navigasi yang Anda rasa kurang atau perlu perbaikan di website Tokopedia?" />
 
                     <RadioGroup
                         android:id="@+id/tokopedia_nav_5"
@@ -553,9 +574,8 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Navigation Button -->
             <Button
-                android:id="@+id/next_button"
+                android:id="@+id/next_button_navigasi_tokopedia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Next"
@@ -571,9 +591,9 @@
         <!-- Shopee -->
         <LinearLayout
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/shopee_section"
+            android:id="@+id/shopee_section_warna_shopee"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="800dp"
             android:orientation="vertical"
             android:background="@drawable/shopee_gradient"
             android:padding="16dp"
@@ -614,7 +634,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="a. Apakah warna di website Shopee membantu membedakan elemen-elemen penting misalnya tombol, navigasi, dan lain-lain?" />
+                        android:text="1. Apakah warna di website Shopee membantu membedakan elemen-elemen penting misalnya tombol, navigasi, dan lain-lain?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_color_1"
@@ -663,7 +683,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="b. Apakah warna yang digunakan di website Shopee membuat Anda merasa nyaman saat berbelanja online?" />
+                        android:text="2. Apakah warna yang digunakan di website Shopee membuat Anda merasa nyaman saat berbelanja online?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_color_2"
@@ -712,7 +732,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="c. Apakah penggunaan warna tidak mengganggu atau membuat mata lelah saat menjelajahi website Shopee?" />
+                        android:text="3. Apakah penggunaan warna tidak mengganggu atau membuat mata lelah saat menjelajahi website Shopee?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_color_3"
@@ -762,7 +782,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="d. Seberapa efektifkah penggunaan warna dalam menarik perhatian Anda terhadap promo, diskon, atau produk baru di website Shopee?" />
+                        android:text="4. Seberapa efektifkah penggunaan warna dalam menarik perhatian Anda terhadap promo, diskon, atau produk baru di website Shopee?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_color_4"
@@ -812,7 +832,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="e. Seberapa menarik kombinasi warna yang digunakan pada antarmuka aplikasi Shopee?" />
+                        android:text="5. Seberapa menarik kombinasi warna yang digunakan pada antarmuka aplikasi Shopee?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_color_5"
@@ -844,6 +864,29 @@
 
             </androidx.cardview.widget.CardView>
 
+            <Button
+                android:id="@+id/next_button_warna_shopee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/shopee_section_navigasi_shopee"
+            android:layout_width="match_parent"
+            android:layout_height="800dp"
+            android:orientation="vertical"
+            android:background="@drawable/shopee_gradient"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -878,7 +921,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="a. Apakah struktur menu dan kategori produk di website Shopee tersusun dengan jelas dan mudah diikuti?" />
+                        android:text="1. Apakah struktur menu dan kategori produk di website Shopee tersusun dengan jelas dan mudah diikuti?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_nav_1"
@@ -927,7 +970,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="b. Apakah fitur pencarian produk di website Shopee berfungsi dengan baik dan memberikan hasil yang relevan?" />
+                        android:text="2. Apakah fitur pencarian produk di website Shopee berfungsi dengan baik dan memberikan hasil yang relevan?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_nav_2"
@@ -976,7 +1019,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="c. Apakah informasi dan detail produk di website Shopee disajikan dengan jelas dan mudah dipahami?" />
+                        android:text="3. Apakah informasi dan detail produk di website Shopee disajikan dengan jelas dan mudah dipahami?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_nav_3"
@@ -1025,7 +1068,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="d. Seberapa mudahkah Anda menemukan informasi yang Anda cari di website Shopee?" />
+                        android:text="4. Seberapa mudahkah Anda menemukan informasi yang Anda cari di website Shopee?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_nav_4"
@@ -1074,7 +1117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:text="e. Apakah ada fitur navigasi yang Anda rasa kurang atau perlu perbaikan di website Shopee?" />
+                        android:text="5. Apakah ada fitur navigasi yang Anda rasa kurang atau perlu perbaikan di website Shopee?" />
 
                     <RadioGroup
                         android:id="@+id/shopee_nav_5"

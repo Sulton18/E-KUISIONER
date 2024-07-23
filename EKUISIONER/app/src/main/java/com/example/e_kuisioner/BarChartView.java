@@ -16,6 +16,15 @@ public class BarChartView extends View {
     private int tokopediaValue;
     private int shopeeValue;
 
+    private int tokopediaWarnaValue;
+    private int tokopediaNavigasiValue;
+    private int shopeeWarnaValue;
+    private int shopeeNavigasiValue;
+    private int tokopediaPercentageWarna;
+    private int tokopediaPercentageNavigasi;
+    private int shopeePercentageWarna;
+    private int shopeePercentageNavigasi;
+
     public BarChartView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
@@ -51,7 +60,7 @@ public class BarChartView extends View {
 
         int width = getWidth();
         int height = getHeight();
-        int barWidth = width / 4;
+        int barWidth = width / 5;
 
         for (int i = 0; i <= 5; i++) {
             int y = height - (height * i / 5);
@@ -62,26 +71,18 @@ public class BarChartView extends View {
         barPaint.setColor(Color.GREEN);
         int tokopediaBarHeight = height * tokopediaPercentage / 125;
         canvas.drawRect(barWidth, height - tokopediaBarHeight, barWidth * 2, height, barPaint);
+        canvas.drawText(tokopediaPercentage + "%", barWidth + (barWidth / 2) - 30, height - tokopediaBarHeight - 10, textPaint);
 
         float[] hsv = new float[3];
         Color.RGBToHSV(255, 165, 0, hsv);
         barPaint.setColor(Color.HSVToColor(hsv));
         int shopeeBarHeight = height * shopeePercentage / 125;
         canvas.drawRect(barWidth * 3, height - shopeeBarHeight, barWidth * 4, height, barPaint);
-
-        textPaint.setColor(Color.BLACK);
-        canvas.drawText("Tokopedia", barWidth + (barWidth / 2) - 50, height + 60, textPaint);
-
-        textPaint.setColor(Color.HSVToColor(hsv));
-        canvas.drawText("Shopee", barWidth * 3 + (barWidth / 2) - 50, height + 60, textPaint);
-
-        textPaint.setColor(Color.BLACK);
-        canvas.drawText(tokopediaPercentage + "%", barWidth + (barWidth / 2) - 30, height - tokopediaBarHeight - 10, textPaint);
         canvas.drawText(shopeePercentage + "%", barWidth * 3 + (barWidth / 2) - 30, height - shopeeBarHeight - 10, textPaint);
 
-        canvas.drawLine(0, height + 80, width, height + 80, linePaint);
+
         textPaint.setColor(Color.BLACK);
-        canvas.drawText("TOKOPEDIA", barWidth + (barWidth / 2) - 50, height + 120, textPaint);
-        canvas.drawText("SHOPEE", barWidth * 3 + (barWidth / 2) - 50, height + 120, textPaint);
+        canvas.drawText("Tokopedia", barWidth, height - 10, textPaint);
+        canvas.drawText("Shopee", barWidth * 3, height - 10, textPaint);
     }
 }
