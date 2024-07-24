@@ -11,6 +11,7 @@ public class BarChartView extends View {
     private Paint barPaint;
     private Paint textPaint;
     private Paint linePaint;
+    private Paint textPaintBold;
     private int tokopediaPercentage;
     private int shopeePercentage;
     private int tokopediaValue;
@@ -44,6 +45,9 @@ public class BarChartView extends View {
         linePaint.setAntiAlias(true);
         linePaint.setColor(Color.BLACK);
         linePaint.setStrokeWidth(5);
+
+        textPaintBold = new Paint(textPaint);
+        textPaintBold.setTypeface(android.graphics.Typeface.create(textPaint.getTypeface(), android.graphics.Typeface.BOLD));
     }
 
     public void setPercentages(int tokopediaValue, int tokopediaPercentage, int shopeeValue, int shopeePercentage) {
@@ -82,7 +86,7 @@ public class BarChartView extends View {
 
 
         textPaint.setColor(Color.BLACK);
-        canvas.drawText("Tokopedia", barWidth, height - 10, textPaint);
-        canvas.drawText("Shopee", barWidth * 3, height - 10, textPaint);
+        canvas.drawText("Tokopedia", barWidth, height - 10, textPaintBold);
+        canvas.drawText("Shopee", barWidth * 3, height - 10, textPaintBold);
     }
 }

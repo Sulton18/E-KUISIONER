@@ -10,6 +10,7 @@ import android.view.View;
 public class BarChartView3 extends View {
     private Paint barPaint;
     private Paint textPaint;
+    private Paint textPaintBold;
     private Paint linePaint;
 
     private int tokopediaWarnaValue;
@@ -36,6 +37,9 @@ public class BarChartView3 extends View {
         textPaint.setColor(Color.BLACK);
         textPaint.setTextSize(40);
 
+        textPaintBold = new Paint(textPaint);
+        textPaintBold.setTypeface(android.graphics.Typeface.create(textPaint.getTypeface(), android.graphics.Typeface.BOLD));
+
         linePaint = new Paint();
         linePaint.setAntiAlias(true);
         linePaint.setColor(Color.BLACK);
@@ -60,50 +64,49 @@ public class BarChartView3 extends View {
 
         int width = getWidth();
         int height = getHeight();
-        int barWidth = width / 8; // Divide the canvas into 8 sections, 2 sections per bar
+        int barWidth = width / 12;
 
-        // Draw horizontal percentage lines and labels
+        drawPercentageLines(canvas, width, height);
+        drawBars(canvas, height, barWidth);
+        drawLabels(canvas, height, barWidth);
+    }
+
+    private void drawPercentageLines(Canvas canvas, int width, int height) {
         for (int i = 0; i <= 5; i++) {
             int y = height - (height * i / 5);
             canvas.drawLine(0, y, width, y, linePaint);
             canvas.drawText((i * 25) + "%", 10, y - 10, textPaint);
         }
+    }
 
+    private void drawBars(Canvas canvas, int height, int barWidth) {
         // Tokopedia Warna bar
         barPaint.setColor(Color.GREEN);
         int tokopediaBarHeightWarna = height * tokopediaPercentageWarna / 125;
-        canvas.drawRect(barWidth, height - tokopediaBarHeightWarna, barWidth * 2, height, barPaint);
-        canvas.drawText(tokopediaPercentageWarna + "%", barWidth + (barWidth / 2) - 30, height - tokopediaBarHeightWarna - 10, textPaint);
-
-        // Tokopedia Navigasi bar
-        float[] tokopedia = new float[3];
-        Color.RGBToHSV(0, 165, 10, tokopedia);
-        barPaint.setColor(Color.HSVToColor(tokopedia));
-        int tokopediaBarHeightNavigasi = height * tokopediaPercentageNavigasi / 125;
-        canvas.drawRect(barWidth * 3, height - tokopediaBarHeightNavigasi, barWidth * 4, height, barPaint);
-        canvas.drawText(tokopediaPercentageNavigasi + "%", barWidth * 3 + (barWidth / 2) - 30, height - tokopediaBarHeightNavigasi - 10, textPaint);
+        canvas.drawRect(barWidth * 3, height - tokopediaBarHeightWarna, barWidth * 4, height, barPaint);
+        canvas.drawText(tokopediaPercentageWarna + "%", barWidth * 3 + (barWidth / 2) - 30, height - tokopediaBarHeightWarna - 10, textPaint);
 
         // Shopee Warna bar
-        float[] hsv = new float[3];
-        Color.RGBToHSV(255, 165, 0, hsv);
-        barPaint.setColor(Color.HSVToColor(hsv));
+        barPaint.setColor(Color.rgb(255, 165, 0));
         int shopeeBarHeightWarna = height * shopeePercentageWarna / 125;
-        canvas.drawRect(barWidth * 5, height - shopeeBarHeightWarna, barWidth * 6, height, barPaint);
-        canvas.drawText(shopeePercentageWarna + "%", barWidth * 5 + (barWidth / 2) - 30, height - shopeeBarHeightWarna - 10, textPaint);
+        canvas.drawRect(barWidth * 4, height - shopeeBarHeightWarna, barWidth * 5, height, barPaint);
+        canvas.drawText(shopeePercentageWarna + "%", barWidth * 4 + (barWidth / 2) - 30, height - shopeeBarHeightWarna - 10, textPaint);
+
+        // Tokopedia Navigasi bar
+        barPaint.setColor(Color.rgb(0, 165, 10));
+        int tokopediaBarHeightNavigasi = height * tokopediaPercentageNavigasi / 125;
+        canvas.drawRect(barWidth * 7, height - tokopediaBarHeightNavigasi, barWidth * 8, height, barPaint);
+        canvas.drawText(tokopediaPercentageNavigasi + "%", barWidth * 7 + (barWidth / 2) - 30, height - tokopediaBarHeightNavigasi - 10, textPaint);
 
         // Shopee Navigasi bar
-        float[] shopee = new float[3];
-        Color.RGBToHSV(255, 0, 0, shopee);
-        barPaint.setColor(Color.HSVToColor(shopee));
+        barPaint.setColor(Color.rgb(255, 0, 0));
         int shopeeBarHeightNavigasi = height * shopeePercentageNavigasi / 125;
-        canvas.drawRect(barWidth * 7, height - shopeeBarHeightNavigasi, barWidth * 8, height, barPaint);
-        canvas.drawText(shopeePercentageNavigasi + "%", barWidth * 7 + (barWidth / 2) - 30, height - shopeeBarHeightNavigasi - 10, textPaint);
+        canvas.drawRect(barWidth * 8, height - shopeeBarHeightNavigasi, barWidth * 9, height, barPaint);
+        canvas.drawText(shopeePercentageNavigasi + "%", barWidth * 8 + (barWidth / 2) - 30, height - shopeeBarHeightNavigasi - 10, textPaint);
+    }
 
-        // Draw labels
-        textPaint.setColor(Color.BLACK);
-        canvas.drawText("Warna", barWidth, height - 10, textPaint);
-        canvas.drawText("Navigasi", barWidth * 3, height - 10, textPaint);
-        canvas.drawText("Warna", barWidth * 5, height - 10, textPaint);
-        canvas.drawText("Navigasi", barWidth * 7, height - 10, textPaint);
+    private void drawLabels(Canvas canvas, int height, int barWidth) {
+        canvas.drawText("Warna", barWidth * 3f, height - 10, textPaintBold);
+        canvas.drawText("Navigasi", barWidth * 7f, height - 10, textPaintBold);
     }
 }
