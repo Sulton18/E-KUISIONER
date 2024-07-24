@@ -68,18 +68,24 @@ public class AdminActivity extends AppCompatActivity {
 
         userDisplayList.clear();
         userIdList.clear();
+        int userNumber = 1;
 
         while (cursor.moveToNext()) {
             @SuppressLint("Range") String userId = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_1));
             @SuppressLint("Range") String email = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_4));
-            userDisplayList.add(email);
+            @SuppressLint("Range") int isApproved = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COL_8));
+
+            String approvalStatus = isApproved == 1 ? "(Approved)" : "(Not Approved)";
+            userDisplayList.add(userNumber + ". " + email + " " + approvalStatus);
             userIdList.add(userId);
+            userNumber++;
         }
         cursor.close();
 
         userAdapter = new ArrayAdapter<>(this, R.layout.list_view, R.id.text_view_item, userDisplayList);
         userListView.setAdapter(userAdapter);
     }
+
 
     private void showOverallPercentages() {
         Cursor cursor = myDb.getAllQuestionnaireData();

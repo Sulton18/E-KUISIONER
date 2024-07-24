@@ -86,12 +86,6 @@
                 android:textColorHint="@color/primaryHintColor"
                 android:layout_marginBottom="1dp"/>
 
-            <Spinner
-                android:id="@+id/user_type_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/user_type_array" />
-
             <Button
                 android:id="@+id/register_button"
                 android:layout_width="match_parent"

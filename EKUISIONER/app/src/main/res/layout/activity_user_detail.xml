@@ -215,6 +215,32 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="18dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <TextView
+                    android:id="@+id/all_results_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="All Results"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginBottom="16dp" />
+
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -229,46 +255,144 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/all_result_tokopedia"
+                    <TextView
+                        android:id="@+id/all_result_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
+                        android:text="Persentase Semua User"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:ignore="MissingConstraints" />
 
-                        <TextView
-                            android:id="@+id/all_result_value_tokopedia"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="2dp"
-                            android:text="Result Tokopedia : "
-                            android:textStyle="bold"
-                            android:textColor="@android:color/black"
-                            android:textSize="16sp"
-                            tools:ignore="MissingConstraints" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/all_result_shopee"
+                    <TextView
+                        android:id="@+id/total_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
+                        android:text="Total User"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        tools:ignore="MissingConstraints" />
 
-                        <TextView
-                            android:id="@+id/all_result_value_shopee"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="1dp">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/tokopedia_results_container_warna2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="2dp"
-                            android:text="Result Shopee : "
-                            android:textStyle="bold"
-                            android:textColor="@android:color/black"
-                            android:textSize="16sp"
-                            tools:ignore="MissingConstraints" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:layout_marginTop="8dp">
+
+                            <View
+                                android:id="@+id/tokopedia_result_box23"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:background="@color/hijau"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tokopedia_value_text_view_warna2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="2dp"
+                                android:text="Tokopedia Warna Value: "
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintStart_toEndOf="@id/tokopedia_result_box23"
+                                app:layout_constraintTop_toTopOf="@id/tokopedia_result_box23" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/tokopedia_results_container_navigasi2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+                            <View
+                                android:id="@+id/tokopedia_result_box22"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:background="@color/hijau2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tokopedia_value_text_view_navigasi2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="2dp"
+                                android:text="Tokopedia Navigasi Value: "
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintStart_toEndOf="@id/tokopedia_result_box22"
+                                app:layout_constraintTop_toTopOf="@id/tokopedia_result_box22" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/shopee_results_container_warna2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+
+                            <View
+                                android:id="@+id/shopee_result_box23"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:background="@color/orange"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/shopee_value_text_view_warna2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="2dp"
+                                android:text="Shopee Warna Value: "
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintStart_toEndOf="@id/shopee_result_box23"
+                                app:layout_constraintTop_toTopOf="@id/shopee_result_box23" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/shopee_results_container_navigasi2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+                            <View
+                                android:id="@+id/shopee_result_box22"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:background="@color/red"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/shopee_value_text_view_navigasi2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="2dp"
+                                android:text="Shopee Navigasi Value: "
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+
+                                app:layout_constraintStart_toEndOf="@id/shopee_result_box22"
+                                app:layout_constraintTop_toTopOf="@id/shopee_result_box22" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    <com.example.e_kuisioner.BarChartView
+                    </LinearLayout>
+
+
+                    <com.example.e_kuisioner.BarChartView3
                         android:id="@+id/bar_chart_all"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
@@ -281,7 +405,7 @@
                 android:id="@+id/cardView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 app:cardBackgroundColor="@android:color/white"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">

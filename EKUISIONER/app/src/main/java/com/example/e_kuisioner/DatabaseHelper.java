@@ -70,17 +70,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4, name);
         contentValues.put(COL_5, age);
         contentValues.put(COL_6, job);
-        contentValues.put(COL_7, userType);
 
-        if ("admin".equals(userType)) {
-            contentValues.put(COL_8, 1);
-        } else {
-            contentValues.put(COL_8, 0);
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_NAME, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+        cursor.close();
+
+        if (count == 0) {
+            userType = "admin";
         }
+
+        contentValues.put(COL_7, userType);
+        contentValues.put(COL_8, "admin".equals(userType) ? 1 : 0);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
         return result != -1;
     }
+
 
     public Cursor getAllUsers() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -210,4 +216,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return totals;
     }
+
+    public boolean isEmailExists(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE EMAIL = ?", new String[]{email});
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
+    }
+
+    public Cursor getDataByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE EMAIL = ?", new String[]{email});
+    }
+
 }

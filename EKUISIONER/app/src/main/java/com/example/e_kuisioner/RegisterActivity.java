@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Patterns;
@@ -14,7 +13,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
     EditText email, password, name, age, job;
-    Spinner userTypeSpinner;
     Button registerButton;
 
     @Override
@@ -29,7 +27,6 @@ public class RegisterActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         age = findViewById(R.id.age);
         job = findViewById(R.id.job);
-        userTypeSpinner = findViewById(R.id.user_type_spinner);
         registerButton = findViewById(R.id.register_button);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -40,12 +37,18 @@ public class RegisterActivity extends AppCompatActivity {
                 String nameStr = name.getText().toString().trim();
                 String ageStr = age.getText().toString().trim();
                 String jobStr = job.getText().toString().trim();
-                String userType = userTypeSpinner.getSelectedItem().toString().toLowerCase();
 
                 if (emailStr.isEmpty() || passwordStr.isEmpty() || nameStr.isEmpty() || ageStr.isEmpty() || jobStr.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "All fields are required", Toast.LENGTH_LONG).show();
                     return;
                 }
+
+                if (isEmailExists(emailStr)) {
+                    Toast.makeText(RegisterActivity.this, "Email already registered", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                String userType = isFirstUser() ? "admin" : "user";
 
                 boolean isInserted = myDb.insertData(emailStr, passwordStr, nameStr, Integer.parseInt(ageStr), jobStr, userType);
                 if (isInserted) {
@@ -58,5 +61,13 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private boolean isFirstUser() {
+        return myDb.getAllUsers().getCount() == 0;
+    }
+
+    private boolean isEmailExists(String email) {
+        return myDb.getDataByEmail(email).getCount() > 0;
     }
 }

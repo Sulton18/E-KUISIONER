@@ -16,11 +16,15 @@ public class ResultsActivity extends AppCompatActivity {
     private TextView tokopediaValueTextViewNavigasi;
     private TextView shopeeValueTextViewWarna;
     private TextView shopeeValueTextViewNavigasi;
-    private TextView allResultValueTokopedia;
-    private TextView allResultValueShopee;
+    private TextView tokopediaValueTextViewWarna2;
+    private TextView tokopediaValueTextViewNavigasi2;
+    private TextView shopeeValueTextViewWarna2;
+    private TextView shopeeValueTextViewNavigasi2;
     private TextView allResults;
+    private TextView allResultsUser;
+    private TextView totalUser;
     BarChartView3 barChartView;
-    BarChartView barChartViewAll;
+    BarChartView3 barChartViewAll;
     private String userId;
 
     @Override
@@ -34,13 +38,19 @@ public class ResultsActivity extends AppCompatActivity {
         tokopediaValueTextViewNavigasi = findViewById(R.id.tokopedia_value_text_view_navigasi);
         shopeeValueTextViewWarna = findViewById(R.id.shopee_value_text_view_warna);
         shopeeValueTextViewNavigasi = findViewById(R.id.shopee_value_text_view_navigasi);
-        allResultValueTokopedia = findViewById(R.id.all_result_value_tokopedia);
-        allResultValueShopee = findViewById(R.id.all_result_value_shopee);
+        tokopediaValueTextViewWarna2 = findViewById(R.id.tokopedia_value_text_view_warna2);
+        tokopediaValueTextViewNavigasi2 = findViewById(R.id.tokopedia_value_text_view_navigasi2);
+        shopeeValueTextViewWarna2 = findViewById(R.id.shopee_value_text_view_warna2);
+        shopeeValueTextViewNavigasi2 = findViewById(R.id.shopee_value_text_view_navigasi2);
         allResults = findViewById(R.id.all_results);
+        allResultsUser = findViewById(R.id.all_results_user);
+        totalUser = findViewById(R.id.total_user);
         barChartView = findViewById(R.id.bar_chart);
         barChartViewAll = findViewById(R.id.bar_chart_all);
 
         userId = getIntent().getStringExtra("USER_ID");
+
+        loadAllUserPercentages();
 
         Cursor userCursor = myDb.getDataById(userId);
         if (userCursor != null && userCursor.moveToFirst()) {
@@ -72,10 +82,6 @@ public class ResultsActivity extends AppCompatActivity {
             @SuppressLint("Range") int tokopediaNavigasiPercentage = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_8));
             @SuppressLint("Range") int shopeeWarnaPercentage = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_9));
             @SuppressLint("Range") int shopeeNavigasiPercentage = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_10));
-            @SuppressLint("Range") int tokopediaValue = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_11));
-            @SuppressLint("Range") int shopeeValue = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_12));
-            @SuppressLint("Range") int tokopediaPercentage = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_13));
-            @SuppressLint("Range") int shopeePercentage = data.getInt(data.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_14));
             
 
             tokopediaValueTextViewWarna.setText("Tokopedia Warna Value: " + tokopediaWarnaValue + " (" + tokopediaWarnaPercentage + "%)");
@@ -83,21 +89,96 @@ public class ResultsActivity extends AppCompatActivity {
             shopeeValueTextViewWarna.setText("Shopee Warna Value: " + shopeeWarnaValue + " (" + shopeeWarnaPercentage + "%)");
             shopeeValueTextViewNavigasi.setText("Shopee Navigasi Value: " + shopeeNavigasiValue + " (" + shopeeNavigasiPercentage + "%)");
 
-            allResultValueTokopedia.setText("Tokopedia All Value: " + tokopediaValue + " (" + tokopediaPercentage + "%)");
-            allResultValueShopee.setText("Shopee All Value: " + shopeeValue + " (" + shopeePercentage + "%)");
-
-            if(tokopediaValue > shopeeValue){
-                allResults.setText("Tokopedia Lebih Baik Dari Pada Shopee");
-            }else if(tokopediaValue < shopeeValue){
-                allResults.setText("Shopee Lebih Baik Dari Pada Tokopedia");
-            }else if(tokopediaValue == shopeeValue) {
-                allResults.setText("Tokopedia & Shopee Setara");
+            if((tokopediaWarnaValue > shopeeWarnaValue)&&(tokopediaNavigasiValue > shopeeNavigasiValue)){
+                allResultsUser.setText("Tokopedia Lebih Unggul Dari Pada Shopee Dari Segi Warna Maupun Navigasi");
+            }else if((tokopediaWarnaValue < shopeeWarnaValue)&&(tokopediaNavigasiValue < shopeeNavigasiValue)){
+                allResultsUser.setText("Shopee Lebih Unggul Dari Pada Tokopedia Dari Segi Warna Maupun Navigasi");
+            }else if((tokopediaWarnaValue > shopeeWarnaValue)&&(tokopediaNavigasiValue < shopeeNavigasiValue)) {
+                allResultsUser.setText("Tokopedia Lebih Unggul Dari Pada Shopee Dari Segi Warna Sedangkan Pada Segi Navigasi Shopee Lebih Unggul Dari Pada Tokopedia");
+            }else if((tokopediaWarnaValue < shopeeWarnaValue)&&(tokopediaNavigasiValue > shopeeNavigasiValue)) {
+                allResultsUser.setText("Shopee Lebih Unggul Dari Pada Tokopedia Dari Segi Warna Sedangkan Pada Segi Navigasi Tokopedia Lebih Unggul Dari Pada Shopee");
+            }else if((tokopediaWarnaValue == shopeeWarnaValue)&&(tokopediaNavigasiValue > shopeeNavigasiValue)) {
+                allResultsUser.setText("Shopee & Tokopedia Dari Segi Warna Setara Sedangkan Pada Segi Navigasi Tokopedia Lebih Unggul Dari Pada Shopee");
+            }else if((tokopediaWarnaValue == shopeeWarnaValue)&&(tokopediaNavigasiValue < shopeeNavigasiValue)) {
+                allResultsUser.setText("Shopee & Tokopedia Dari Segi Warna Setara Sedangkan Pada Segi Navigasi Shopee Lebih Unggul Dari Pada Tokopedia");
+            }else if((tokopediaWarnaValue > shopeeWarnaValue)&&(tokopediaNavigasiValue == shopeeNavigasiValue)) {
+                allResultsUser.setText("Shopee & Tokopedia Dari Segi Navigasi Setara Sedangkan Pada Segi Warna Tokopedia Lebih Unggul Dari Pada Shopee");
+            }else if((tokopediaWarnaValue < shopeeWarnaValue)&&(tokopediaNavigasiValue == shopeeNavigasiValue)) {
+                allResultsUser.setText("Shopee & Tokopedia Dari Segi Navigasi Setara Sedangkan Pada Segi Warna Shopee Lebih Unggul Dari Pada Tokopedia");
+            }else if((tokopediaWarnaValue == shopeeWarnaValue)&&(tokopediaNavigasiValue == shopeeNavigasiValue)) {
+                allResultsUser.setText("Shopee & Tokopedia Setara Dari Segi Warna Maupun Navigasi");
             }
 
-            barChartViewAll.setPercentages(tokopediaValue, tokopediaPercentage, shopeeValue, shopeePercentage);
             barChartView.setPercentages(tokopediaWarnaValue, tokopediaNavigasiValue, tokopediaWarnaPercentage, tokopediaNavigasiPercentage,shopeeWarnaValue,shopeeNavigasiValue,shopeeWarnaPercentage,shopeeNavigasiPercentage);
 
             data.close();
         }
+    }
+
+    private void loadAllUserPercentages() {
+        Cursor cursor = myDb.getAllQuestionnaireData();
+
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this, "No questionnaire data found", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        int totalUsers = 0;
+        int totalTokopediaWarnaValue = 0;
+        int totalTokopediaNavigasiValue = 0;
+        int totalShopeeWarnaValue = 0;
+        int totalShopeeNavigasiValue = 0;
+
+        while (cursor.moveToNext()) {
+            @SuppressLint("Range") int tokopediaWarnaValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_3));
+            @SuppressLint("Range") int tokopediaNavigasiValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_4));
+            @SuppressLint("Range") int shopeeWarnaValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
+            @SuppressLint("Range") int shopeeNavigasiValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
+
+            totalUsers++;
+            totalTokopediaWarnaValue += tokopediaWarnaValue;
+            totalTokopediaNavigasiValue += tokopediaNavigasiValue;
+            totalShopeeWarnaValue += shopeeWarnaValue;
+            totalShopeeNavigasiValue += shopeeNavigasiValue;
+        }
+
+        if (totalUsers > 0) {
+            int totalTokopediaWarnaPersen = (totalTokopediaWarnaValue / totalUsers) * 100 / 25;
+            int totalTokopediaNavigasiPersen = (totalTokopediaNavigasiValue / totalUsers) * 100 / 25;
+            int totalShopeeWarnaPersen = (totalShopeeWarnaValue / totalUsers) * 100 / 25;
+            int totalShopeeNavigasiPersen = (totalShopeeNavigasiValue / totalUsers) * 100 / 25;
+
+            if((totalTokopediaWarnaValue > totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue > totalShopeeNavigasiValue)){
+                allResults.setText("Tokopedia Lebih Unggul Dari Pada Shopee Dari Segi Warna Maupun Navigasi");
+            }else if((totalTokopediaWarnaValue < totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue < totalShopeeNavigasiValue)){
+                allResults.setText("Shopee Lebih Unggul Dari Pada Tokopedia Dari Segi Warna Maupun Navigasi");
+            }else if((totalTokopediaWarnaValue > totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue < totalShopeeNavigasiValue)) {
+                allResults.setText("Tokopedia Lebih Unggul Dari Pada Shopee Dari Segi Warna Sedangkan Pada Segi Navigasi Shopee Lebih Unggul Dari Pada Tokopedia");
+            }else if((totalTokopediaWarnaValue < totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue > totalShopeeNavigasiValue)) {
+                allResults.setText("Shopee Lebih Unggul Dari Pada Tokopedia Dari Segi Warna Sedangkan Pada Segi Navigasi Tokopedia Lebih Unggul Dari Pada Shopee");
+            }else if((totalTokopediaWarnaValue == totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue > totalShopeeNavigasiValue)) {
+                allResults.setText("Shopee & Tokopedia Dari Segi Warna Setara Sedangkan Pada Segi Navigasi Tokopedia Lebih Unggul Dari Pada Shopee");
+            }else if((totalTokopediaWarnaValue == totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue < totalShopeeNavigasiValue)) {
+                allResults.setText("Shopee & Tokopedia Dari Segi Warna Setara Sedangkan Pada Segi Navigasi Shopee Lebih Unggul Dari Pada Tokopedia");
+            }else if((totalTokopediaWarnaValue > totalShopeeWarnaValue)&&(totalTokopediaNavigasiPersen == totalShopeeNavigasiPersen)) {
+                allResults.setText("Shopee & Tokopedia Dari Segi Navigasi Setara Sedangkan Pada Segi Warna Tokopedia Lebih Unggul Dari Pada Shopee");
+            }else if((totalTokopediaWarnaValue < totalShopeeWarnaValue)&&(totalTokopediaNavigasiPersen == totalShopeeNavigasiPersen)) {
+                allResults.setText("Shopee & Tokopedia Dari Segi Navigasi Setara Sedangkan Pada Segi Warna Shopee Lebih Unggul Dari Pada Tokopedia");
+            }else if((totalTokopediaWarnaValue == totalShopeeWarnaValue)&&(totalTokopediaNavigasiPersen == totalShopeeNavigasiPersen)) {
+                allResults.setText("Shopee & Tokopedia Setara Dari Segi Warna Maupun Navigasi");
+            }
+
+            totalUser.setText("Total User : "+totalUsers);
+            tokopediaValueTextViewWarna2.setText("Tokopedia Warna Value: " + totalTokopediaWarnaValue + " (" + totalTokopediaWarnaPersen + "%)");
+            tokopediaValueTextViewNavigasi2.setText("Tokopedia Navigasi Value: " + totalTokopediaNavigasiValue + " (" + totalTokopediaNavigasiPersen + "%)");
+            shopeeValueTextViewWarna2.setText("Shopee Warna Value: " + totalShopeeWarnaValue + " (" + totalShopeeWarnaPersen + "%)");
+            shopeeValueTextViewNavigasi2.setText("Shopee Navigasi Value: " + totalShopeeNavigasiValue + " (" + totalShopeeNavigasiPersen + "%)");
+
+            barChartViewAll.setPercentages(totalTokopediaWarnaValue, totalTokopediaNavigasiValue, totalTokopediaWarnaPersen, totalTokopediaNavigasiPersen, totalShopeeWarnaValue, totalShopeeNavigasiValue, totalShopeeWarnaPersen, totalShopeeNavigasiPersen);
+        } else {
+            Toast.makeText(this, "No valid questionnaire data found", Toast.LENGTH_LONG).show();
+        }
+
+        cursor.close();
     }
 }

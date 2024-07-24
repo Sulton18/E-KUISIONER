@@ -3,43 +3,39 @@ package com.example.e_kuisioner;
 import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PercentagesActivity extends AppCompatActivity {
 
-    private BarChartView2 totalBarChartView;
-    private BarChartView totalBarChartViewAll;
+    private BarChartView3 totalBarChartViewAll;
     private DatabaseHelper myDb;
-    private List<UserPercentage> userPercentages;
-    private int totalUsers;
-    private int totalTokopediaValue;
-    private int totalShopeeValue;
-    private int totalTokopediaPercentage;
-    private int totalShopeePercentage;
+
+    private TextView tokopediaValueTextViewWarna;
+    private TextView tokopediaValueTextViewNavigasi;
+    private TextView shopeeValueTextViewWarna;
+    private TextView shopeeValueTextViewNavigasi;
+    private TextView allResults;
+    private TextView totalUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_percentages);
 
-        totalBarChartView = findViewById(R.id.total_bar_chart);
-        totalBarChartViewAll = findViewById(R.id.total_bar_chart_all);
+        tokopediaValueTextViewWarna = findViewById(R.id.tokopedia_value_text_view_warna);
+        tokopediaValueTextViewNavigasi = findViewById(R.id.tokopedia_value_text_view_navigasi);
+        shopeeValueTextViewWarna = findViewById(R.id.shopee_value_text_view_warna);
+        shopeeValueTextViewNavigasi = findViewById(R.id.shopee_value_text_view_navigasi);
+
+        allResults = findViewById(R.id.all_results);
+        totalUser = findViewById(R.id.all_peruser);
+
+        totalBarChartViewAll = findViewById(R.id.total_bar_chart);
         myDb = new DatabaseHelper(this);
-        userPercentages = new ArrayList<>();
-        totalUsers = 0;
-        totalTokopediaValue = 0;
-        totalShopeeValue = 0;
-        totalTokopediaPercentage = 0;
-        totalShopeePercentage = 0;
 
         loadAllUserPercentages();
-
-        totalBarChartView.setUserPercentages(userPercentages);
     }
 
     private void loadAllUserPercentages() {
@@ -50,53 +46,62 @@ public class PercentagesActivity extends AppCompatActivity {
             return;
         }
 
+        int totalUsers = 0;
+        int totalTokopediaWarnaValue = 0;
+        int totalTokopediaNavigasiValue = 0;
+        int totalShopeeWarnaValue = 0;
+        int totalShopeeNavigasiValue = 0;
+
         while (cursor.moveToNext()) {
-            @SuppressLint("Range") String userId = cursor.getString(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_2));
-            @SuppressLint("Range") int tokopediaValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_11));
-            @SuppressLint("Range") int shopeeValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_12));
-            @SuppressLint("Range") int tokopediaPercentage = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_13));
-            @SuppressLint("Range") int shopeePercentage = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_14));
-
-            Cursor userCursor = myDb.getDataById(userId);
-            String userName = "";
-            if (userCursor.moveToFirst()) {
-                @SuppressLint("Range") String name = userCursor.getString(userCursor.getColumnIndex(DatabaseHelper.COL_4));
-                userName = name;
-            }
-            userCursor.close();
-
-            userPercentages.add(new UserPercentage(userId, userName, tokopediaPercentage, shopeePercentage));
+            @SuppressLint("Range") int tokopediaWarnaValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_3));
+            @SuppressLint("Range") int tokopediaNavigasiValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_4));
+            @SuppressLint("Range") int shopeeWarnaValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_5));
+            @SuppressLint("Range") int shopeeNavigasiValue = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.QUESTIONNAIRE_COL_6));
 
             totalUsers++;
-            totalTokopediaPercentage += tokopediaPercentage;
-            totalShopeePercentage += shopeePercentage;
-            totalTokopediaValue += tokopediaValue;
-            totalShopeeValue += shopeeValue;
+            totalTokopediaWarnaValue += tokopediaWarnaValue;
+            totalTokopediaNavigasiValue += tokopediaNavigasiValue;
+            totalShopeeWarnaValue += shopeeWarnaValue;
+            totalShopeeNavigasiValue += shopeeNavigasiValue;
         }
-        totalBarChartViewAll.setPercentages(totalTokopediaValue, totalTokopediaPercentage/totalUsers, totalShopeeValue, totalShopeePercentage/totalUsers);
+
+        if (totalUsers > 0) {
+            int totalTokopediaWarnaPersen = (totalTokopediaWarnaValue / totalUsers) * 100 / 25;
+            int totalTokopediaNavigasiPersen = (totalTokopediaNavigasiValue / totalUsers) * 100 / 25;
+            int totalShopeeWarnaPersen = (totalShopeeWarnaValue / totalUsers) * 100 / 25;
+            int totalShopeeNavigasiPersen = (totalShopeeNavigasiValue / totalUsers) * 100 / 25;
+
+            if((totalTokopediaWarnaValue > totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue > totalShopeeNavigasiValue)){
+                allResults.setText("Tokopedia Lebih Unggul Dari Pada Shopee Dari Segi Warna Maupun Navigasi");
+            }else if((totalTokopediaWarnaValue < totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue < totalShopeeNavigasiValue)){
+                allResults.setText("Shopee Lebih Unggul Dari Pada Tokopedia Dari Segi Warna Maupun Navigasi");
+            }else if((totalTokopediaWarnaValue > totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue < totalShopeeNavigasiValue)) {
+                allResults.setText("Tokopedia Lebih Unggul Dari Pada Shopee Dari Segi Warna Sedangkan Pada Segi Navigasi Shopee Lebih Unggul Dari Pada Tokopedia");
+            }else if((totalTokopediaWarnaValue < totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue > totalShopeeNavigasiValue)) {
+                allResults.setText("Shopee Lebih Unggul Dari Pada Tokopedia Dari Segi Warna Sedangkan Pada Segi Navigasi Tokopedia Lebih Unggul Dari Pada Shopee");
+            }else if((totalTokopediaWarnaValue == totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue > totalShopeeNavigasiValue)) {
+                allResults.setText("Shopee & Tokopedia Dari Segi Warna Setara Sedangkan Pada Segi Navigasi Tokopedia Lebih Unggul Dari Pada Shopee");
+            }else if((totalTokopediaWarnaValue == totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue < totalShopeeNavigasiValue)) {
+                allResults.setText("Shopee & Tokopedia Dari Segi Warna Setara Sedangkan Pada Segi Navigasi Shopee Lebih Unggul Dari Pada Tokopedia");
+            }else if((totalTokopediaWarnaValue > totalShopeeWarnaValue)&&(totalTokopediaNavigasiPersen == totalShopeeNavigasiPersen)) {
+                allResults.setText("Shopee & Tokopedia Dari Segi Navigasi Setara Sedangkan Pada Segi Warna Tokopedia Lebih Unggul Dari Pada Shopee");
+            }else if((totalTokopediaWarnaValue < totalShopeeWarnaValue)&&(totalTokopediaNavigasiPersen == totalShopeeNavigasiPersen)) {
+                allResults.setText("Shopee & Tokopedia Dari Segi Navigasi Setara Sedangkan Pada Segi Warna Shopee Lebih Unggul Dari Pada Tokopedia");
+            }else if((totalTokopediaWarnaValue == totalShopeeWarnaValue)&&(totalTokopediaNavigasiPersen == totalShopeeNavigasiPersen)) {
+                allResults.setText("Shopee & Tokopedia Setara Dari Segi Warna Maupun Navigasi");
+            }
+
+            totalUser.setText("Total User : "+totalUsers);
+            tokopediaValueTextViewWarna.setText("Tokopedia Warna Value: " + totalTokopediaWarnaValue + " (" + totalTokopediaWarnaPersen + "%)");
+            tokopediaValueTextViewNavigasi.setText("Tokopedia Navigasi Value: " + totalTokopediaNavigasiValue + " (" + totalTokopediaNavigasiPersen + "%)");
+            shopeeValueTextViewWarna.setText("Shopee Warna Value: " + totalShopeeWarnaValue + " (" + totalShopeeWarnaPersen + "%)");
+            shopeeValueTextViewNavigasi.setText("Shopee Navigasi Value: " + totalShopeeNavigasiValue + " (" + totalShopeeNavigasiPersen + "%)");
+
+            totalBarChartViewAll.setPercentages(totalTokopediaWarnaValue, totalTokopediaNavigasiValue, totalTokopediaWarnaPersen, totalTokopediaNavigasiPersen, totalShopeeWarnaValue, totalShopeeNavigasiValue, totalShopeeWarnaPersen, totalShopeeNavigasiPersen);
+        } else {
+            Toast.makeText(this, "No valid questionnaire data found", Toast.LENGTH_LONG).show();
+        }
+
         cursor.close();
-    }
-
-    private void displayTotals() {
-        // Display or use the totalUsers, totalTokopediaPercentage, and totalShopeePercentage as needed.
-        // For example:
-        Toast.makeText(this, "Total Users: " + totalUsers, Toast.LENGTH_LONG).show();
-        Toast.makeText(this, "Total Tokopedia Percentage: " + totalTokopediaPercentage, Toast.LENGTH_LONG).show();
-        Toast.makeText(this, "Total Shopee Percentage: " + totalShopeePercentage, Toast.LENGTH_LONG).show();
-    }
-}
-
-
-class UserPercentage {
-    String userId;
-    String userName;
-    int tokopediaPercentage;
-    int shopeePercentage;
-
-    UserPercentage(String userId, String userName, int tokopediaPercentage, int shopeePercentage) {
-        this.userId = userId;
-        this.userName = userName;
-        this.tokopediaPercentage = tokopediaPercentage;
-        this.shopeePercentage = shopeePercentage;
     }
 }
