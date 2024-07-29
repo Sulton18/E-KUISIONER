@@ -163,9 +163,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean deleteUser(String userId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME, "ID = ?", new String[]{userId});
-        return result > 0;
+
+        // Memulai transaksi
+        db.beginTransaction();
+        try {
+            // Menghapus data kuesioner pengguna
+            long questionnaireResult = db.delete(QUESTIONNAIRE_TABLE_NAME, "USER_ID = ?", new String[]{userId});
+
+            // Menghapus pengguna
+            long userResult = db.delete(TABLE_NAME, "ID = ?", new String[]{userId});
+
+            // Jika kedua penghapusan berhasil, komit transaksi
+            if (questionnaireResult > 0 && userResult > 0) {
+                db.setTransactionSuccessful();
+                return true;
+            }
+            return false;
+        } finally {
+            db.endTransaction();
+        }
     }
+
 
     public boolean updateUser(String userId, String email, String password, String name, int age, String job) {
         SQLiteDatabase db = this.getWritableDatabase();
