@@ -243,10 +243,10 @@ public class UserDetailActivity extends AppCompatActivity {
         }
 
         if (totalUsers > 0) {
-            int totalTokopediaWarnaPersen = (totalTokopediaWarnaValue / totalUsers) * 100 / 25;
-            int totalTokopediaNavigasiPersen = (totalTokopediaNavigasiValue / totalUsers) * 100 / 25;
-            int totalShopeeWarnaPersen = (totalShopeeWarnaValue / totalUsers) * 100 / 25;
-            int totalShopeeNavigasiPersen = (totalShopeeNavigasiValue / totalUsers) * 100 / 25;
+            int totalTokopediaWarnaPersen = (int) ((float) totalTokopediaWarnaValue / totalUsers * 100 / 25);
+            int totalTokopediaNavigasiPersen = (int) ((float) totalTokopediaNavigasiValue / totalUsers * 100 / 25);
+            int totalShopeeWarnaPersen = (int) ((float) totalShopeeWarnaValue / totalUsers * 100 / 25);
+            int totalShopeeNavigasiPersen = (int) ((float) totalShopeeNavigasiValue / totalUsers * 100 / 25);
 
             if((totalTokopediaWarnaValue > totalShopeeWarnaValue)&&(totalTokopediaNavigasiValue > totalShopeeNavigasiValue)){
                 allResults.setText("Tokopedia Lebih Unggul Dari Pada Shopee Dari Segi Warna Maupun Navigasi");
